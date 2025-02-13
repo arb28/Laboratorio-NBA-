@@ -8,5 +8,5 @@
 - ......
 - ......
 
-## Por que algunos generemos musicales dominan la escena mundial? 
+## Por que algunos generos musicales dominan la escena mundial? 
 #### Cuales son las claves del dominio del regueton, pop y altualmente el k-pop 
