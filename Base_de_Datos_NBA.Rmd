@@ -1,0 +1,73 @@
+---
+title: "Análisis Estadístico de la Base de Datos NBA"
+output: pdf_document
+date: "2025-03-01"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(readxl)
+library(knitr)
+library(gt)
+
+#tinytex::install_tinytex(force = TRUE)
+Data_Frame_NBA <-read_excel("D:\\NBA G1-G10.xlsx")
+```
+
+## Presentacion de variables
+```{r ,echo=FALSE,width= 4, fig.height= 4}
+resumen <- Data_Frame_NBA %>%
+  filter(Team == "BOS") %>%
+  select(Season,Team,Age, MIN, Position) %>%
+  summarize(
+    Media_MIN_BOS = mean(MIN, na.rm = TRUE), #Promedio de Minutos jugados dado a que son del Team Boston
+    Desv_Estandar_MIN = sd(MIN, na.rm = TRUE),
+    Minimo_MIN = min(MIN, na.rm = TRUE),
+    Maximo_MIN = max(MIN, na.rm = TRUE)
+    )
+
+kable(resumen, caption ="Datos Principales De los Boston Celtis")
+
+```
+## Jugadores con Mayor y Menor cantidad de minutos jugados
+  Los jugadores presentados a la siguente tabla son los jugadores de los Boston Celtis que tuvieronla mayot y menor cantidad de minutos jugados en toda las temporadas de los Boston celtis
+```{r echo=FALSE,width= 4, fig.height= 4}
+Jugador_Minimo_Minutos_BOS <- Data_Frame_NBA %>%
+  filter(Team == "BOS")%>%
+  filter(MIN == min(MIN, na.rm = TRUE))%>%
+  select(MIN, Player, Season)
+
+Jugador_Maximo_Minutos_BOS <- Data_Frame_NBA %>%
+  filter(Team == "BOS")%>%
+  filter(MIN == max(MIN, na.rm = TRUE))%>%
+  select(MIN, Player, Season)
+
+jugadores_extremos <- bind_rows(Jugador_Maximo_Minutos_BOS,Jugador_Minimo_Minutos_BOS)
+
+kable(jugadores_extremos, caption = "Jugadores De Los Boston Celtis Con Mayor y Menor Cantidad de Minutos Por Temporada")
+```
+
+## Including Plots
+
+```{r Plot_1, echo=FALSE,fig.width=8, fig.height=4}
+#Grafico de una comparativa de edades con minutos jugados
+Data_Frame_NBA %>% 
+  filter(Team == "BOS") %>%
+  select(Age, MIN, Season, Position)%>% 
+  ggplot(aes(Age, MIN))+
+  geom_boxplot()+
+  labs(title = "Comportamiento de la Edad con Minutos Jugados de Los Boston")+
+  facet_wrap(~Position)+
+  theme_bw()
+```
+
+
+```{r echo=FALSE}
+#Data_Frame_NBA %>% 
+#  filter(Team == "BOS")%>%
+#  select(Season, Player, Team, Age, MIN)%>%
+ # gt()
+```
+
