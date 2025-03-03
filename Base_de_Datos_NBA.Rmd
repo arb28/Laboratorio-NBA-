@@ -1,7 +1,7 @@
 ---
-title: "Análisis Estadístico de la Base de Datos NBA"
+title: "Evolución del Rendimiento de los Jugadores de la NBA (2014-2024)"
 output: pdf_document
-date: "2025-03-01"
+date: "2025-03-02"
 ---
 
 ```{r setup, include=FALSE}
@@ -13,22 +13,49 @@ library(knitr)
 library(gt)
 
 #tinytex::install_tinytex(force = TRUE)
-Data_Frame_NBA <-read_excel("D:\\NBA G1-G10.xlsx")
+Data_Frame_NBA <-read_excel("D:\\NBA G1-G10.xlsx","BBDD")
+```
+## Datos Mas Importantes
+```{r echo=FALSE,message= FALSE, warning=FALSE}
+#Faltrado Por temporada, unicamente desde 1014 hasta 2024
+Datos_Por_Temporada <- Data_Frame_NBA %>%
+  filter(Season >= "2014-15" & Season <= "2024-25")
+
+Posicion_Numerica <- c("Center" = 1, "Forward" = 2, "Guard" = 3)
+
+Estadisticas_Generales <- function(Equipo){
+  Datos_Por_Temporada %>%
+    filter(Team == Equipo)%>%
+    select(Season,Team,Age,MIN,Position)%>%
+    mutate(Pos_num = recode(Position, !!!Posicion_Numerica))%>%
+    summarize(
+      Team = case_when(
+        Equipo == "BOS"~"Boston Celtics",
+        Equipo == "ATL"~"Atlanta Hawks",
+        Equipo == "BKN"~"Brooklyn Nets",
+        Equipo == "CHA"~"Charlotte Hornets",
+        Equipo == "CHI"~"Chicago Bulls",
+        Equipo == "CLE"~"Cleveland Cavaliers",
+        Equipo == "DAL"~"Dallas Mavericks",
+      ),
+      Minutos_Promedio = mean(MIN, na.rm = T),
+      Desviacion_Estandar = sd(MIN, na.rm = T),
+      Minutos_min = min(MIN, na.rm = T),
+      Minutos_max = max(MIN, na.rm = T),
+      Posicion = recode(round(mean(Pos_num, na.rm = TRUE)), !!!setNames(names(Posicion_Numerica), Posicion_Numerica))
+    )
+}
+# Aplicar la función a cada equipo
+equipos <- c("BOS", "ATL", "BKN", "CHA","CHI","CLE","DAL")
+Datos_a_Comparar <- lapply(equipos, Estadisticas_Generales) %>%
+  bind_rows()
+
+# Mostrar la tabla
+kable(Datos_a_Comparar, caption = "Tabla comparativa general por equipo", digits = 2)
 ```
 
 ## Presentacion de variables
 ```{r ,echo=FALSE,width= 4, fig.height= 4}
-resumen <- Data_Frame_NBA %>%
-  filter(Team == "BOS") %>%
-  select(Season,Team,Age, MIN, Position) %>%
-  summarize(
-    Media_MIN_BOS = mean(MIN, na.rm = TRUE), #Promedio de Minutos jugados dado a que son del Team Boston
-    Desv_Estandar_MIN = sd(MIN, na.rm = TRUE),
-    Minimo_MIN = min(MIN, na.rm = TRUE),
-    Maximo_MIN = max(MIN, na.rm = TRUE)
-    )
-
-kable(resumen, caption ="Datos Principales De los Boston Celtis")
 
 ```
 ## Jugadores con Mayor y Menor cantidad de minutos jugados
@@ -42,7 +69,7 @@ Jugador_Minimo_Minutos_BOS <- Data_Frame_NBA %>%
 Jugador_Maximo_Minutos_BOS <- Data_Frame_NBA %>%
   filter(Team == "BOS")%>%
   filter(MIN == max(MIN, na.rm = TRUE))%>%
-  select(MIN, Player, Season)
+  select(Player, Season)
 
 jugadores_extremos <- bind_rows(Jugador_Maximo_Minutos_BOS,Jugador_Minimo_Minutos_BOS)
 
