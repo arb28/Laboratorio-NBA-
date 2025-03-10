@@ -1,5 +1,5 @@
 ---
-title: "Análisis de Características Ofensivas y Defensivas de los ganadores del MVP de la NBA (2014-2024)"
+title: "Análisis de Características Ofensivas y Defensivas de los ganadores del MVP de la NBA (2014-2023)"
 output: pdf_document
 date: "`r Sys.Date()`"
 lang: ES
@@ -17,52 +17,58 @@ library(patchwork)
 Data_Frame_NBA <-read_excel("D:\\NBA G1-G10.xlsx","BBDD")
 ```
 
-## 1. PRESENTACIÓN DE LOS JUGADORES GANADORES DEL MVP EN LOS ULTIMOS 10 AÑOS
+## 1. PRESENTACIÓN DE LOS JUGADORES GANADORES DEL MVP EN LOS ULTIMOS 9 AÑOS
 
-Aquí presentamos los jugadores que ganaron el tan codiciado premio a el jugador más valioso de la temporada, podemos ve tanto su edad como la temporada en la que ganaron este titulo y el equipo para el que jugaban, con estos jugadores vamo a re alizar nuestro trabajo de investigación, el cual es encontrarcual es el mejor jugador en las sigientes caracteristicas: 1. Mejor jugador ofensivo. 2. Mejor jugador defensivo. A travez de los gráficos y cálculos de terminaremos quien es el mejor jugader en las características antes mencionadas y justificaré porque son los mejores en esa categoría
+Aquí presentamos los jugadores que ganaron el tan codiciado premio a el jugador más valioso de la temporada, podemos ve tanto su edad como la temporada en la que ganaron este titulo y el equipo para el que jugaban, con estos jugadores vamo a re alizar nuestro trabajo de investigación, el cual es encontrarcual es el mejor jugador en las sigientes caracteristicas:
+
+1\. Mejor jugador ofensivo.
+
+2\. Mejor jugador defensivo.
+
+A travez de los gráficos y cálculos de terminaremos quien es el mejor jugader en las características antes mencionadas y justificaré porque son los mejores en esa categoría
 
 ```{r echo=FALSE,message= FALSE, warning=FALSE,fig.width=10, fig.height= 5,fig.align = "center"}
 #Filtrado Por temporada, unicamente desde 2014 hasta 2024
 Datos_MVP_2014 <- Data_Frame_NBA %>%
   filter(Season == "2014-15" & Player == "Kevin Durant")%>%#Aqui estoy filtrando a un jugador que esta en esa temporada
-  select(Season,Player,Age,Team)
+  select(Season,Player,Age,Team,Position)
 #Continuamos vasado en la misma estructura, pero cambiando al jugador y la temporada  
 
 Datos_MVP_2015 <- Data_Frame_NBA %>%
   filter(Season == "2015-16" & Player == "Stephen Curry")%>% 
-  select(Season,Player,Age,Team) 
+  select(Season,Player,Age,Team,Position) 
 
 Datos_MVP_2016 <- Data_Frame_NBA %>%
   filter(Season == "2016-17" & Player == "Stephen Curry")%>%#
-  select(Season,Player,Age,Team)
+  select(Season,Player,Age,Team,Position)
 
 Datos_MVP_2017 <- Data_Frame_NBA %>%
   filter(Season == "2017-18" & Player == "Russell Westbrook")%>%
-  select(Season,Player,Age,Team) 
+  select(Season,Player,Age,Team,Position) 
 
 Datos_MVP_2018 <- Data_Frame_NBA %>%
   filter(Season == "2018-19" & Player == "James Harden") %>%
-  select(Season,Player,Age,Team) 
+  select(Season,Player,Age,Team,Position) 
 
 Datos_MVP_2019 <- Data_Frame_NBA %>%
   filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")%>%
-  select(Season,Player,Age,Team)
+  select(Season,Player,Age,Team,Position)
          
 Datos_MVP_2020 <- Data_Frame_NBA %>%
   filter(Season == "2020-21" & Player == "Giannis Antetokounmpo") %>%
-  select(Season,Player,Age,Team)
+  select(Season,Player,Age,Team,Position)
 
 Datos_MVP_2021 <- Data_Frame_NBA %>%
   filter(Season == "2021-22" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team)
+  select(Season,Player,Age,Team,Position)
 
 Datos_MVP_2022 <- Data_Frame_NBA %>%
   filter(Season == "2022-23" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team)
+  select(Season,Player,Age,Team,Position)
 
 Datos_MVP_2023 <- Data_Frame_NBA %>%
   filter(Season == "2023-24" & Player == "Joel Embiid")%>%
-  select(Season,Player,Age,Team)
+  select(Season,Player,Age,Team,Position)
 
 #Agrupacion de variables
 #bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
@@ -83,7 +89,7 @@ kable(Datos_MVPs_2014_2023, caption = "MVP's de los Úlrimos 10 años", digits =
 
 ## 2. ESTADÍSTICAS OFENSIVAS
 
-En este apartado analisaremos las estadisticas ofensivas de cada jugador ganador del premio MVP (Most Value Player) y asi analizar quien es el mejor jugador ofencivo de los ultimos 10 años, tomaremos como definicion de mejor jugador ofencivo al jugador con mas sobresaliencias en este aspecto a estudiar. Tomaremos como criterios para el cálculo variables como:
+En este apartado analisaremos las estadisticas ofensivas de cada jugador ganador del premio MVP (Most Value Player) y asi analizar quien es el mejor jugador ofencivo de los ultimos 9 años, tomaremos como definicion de mejor jugador ofencivo al jugador con mas sobresaliencias en este aspecto a estudiar. Tomaremos como criterios para el cálculo variables como:
 
 1\. Asistencias.
 
@@ -103,7 +109,7 @@ Estos se utilizará para estudiar cuales son los mejores 2 mejores jugadores de 
 
 **2.1. ASISTENCIAS**
 
-Para este apartado analizaremos mediante el gráfico antes mencionado las asistencias, pero que son las asistencias: en el basquetball las asitensias son el pase previo a una anotación que re aliza un jugador. Sabiendo esto estudiaremos cunatas asistencias hizo cada MVP y obvervaremos quien es el mejor asistidor entre los mejores jugadores de los últimos 10 años.
+Para este apartado analizaremos mediante el gráfico antes mencionado las asistencias, pero que son las asistencias: en el basquetball las asitensias son el pase previo a una anotación que re aliza un jugador. Sabiendo esto estudiaremos cunatas asistencias hizo cada MVP y obvervaremos quien es el mejor asistidor entre los mejores jugadores de los últimos 9 años.
 
 ```{r echo=FALSE, fig.align="center", fig.height=6, fig.width=10}
 #Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
@@ -212,11 +218,11 @@ kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LAS ASISTENCIAS",di
 Podemos observar en la grafica que los jugadores con mas asistencias son:
 
 1.  Rusell Westbrook (2017-18).
-2.  Nikola Jokic (2022-23). Estos son los mejores asistidores entre los MVP's de los ultimos 10 años.
+2.  Nikola Jokic (2022-23). Estos son los mejores asistidores entre los MVP's de los ultimos 9 años.
 
 **Interpretación de la Tabla**
 
-PROMEDIO: El promedio de las asistencias de los ganadores del MVP de los últimos 10 años es de 475.9 por temporada.
+PROMEDIO: El promedio de las asistencias de los ganadores del MVP de los últimos 9 años es de 475.9 por temporada.
 
 DESVIACIÓN ESTANDAR: La desviación estandar es de 215,21, lo cual quiere decir que los datos varian mucho y su media no es significativa ya que hay valores muy cambiantes.
 
@@ -338,7 +344,7 @@ Los 2 jugadores con mas puntos anotados en la temporada que ganaron el MVP son:
 
 2.  Stephen Curry (2015-16)
 
-Estos son los mayores anotadores entre los MVP's de los últimos 10 años
+Estos son los mayores anotadores entre los MVP's de los últimos 9 años
 
 **Interpretaicón de la Tabla**
 
@@ -346,7 +352,7 @@ PROMEDIO: El promedio de puntos de los jugadores ganadores del MVP es de 1852.7 
 
 DESVIACIÓN ESTANDAR: La desviación estandar de los puntos anotados es de 571,1 puntos, lo cual nos dice que los datos son muy variable.
 
-MAXIMO: El mayor anotador es con 2818 puntos James Harden (2018-19)-
+MAXIMO: El mayor anotador es con 2818 puntos James Harden (2018-19).
 
 MINIMO: El menor anotador es con 686 puntos Kevin Durant (2014-15).
 
@@ -464,7 +470,7 @@ Los 2 jugadores con mas puntos anotados en la temporada que ganaron el MVP son:
 
 2.  James Harden (2018-19)
 
-Estos son los mayores anotadores de 3 puntos entre los MVP's de los últimos 10 años.
+Estos son los mayores anotadores de 3 puntos entre los MVP's de los últimos 9 años.
 
 **Interpretación de la Tabla**
 
@@ -590,7 +596,7 @@ Los 2 jugadores con mas puntos anotados en la temporada que ganaron el MVP son:
 
 2.  Stephen Curry (2016-17)
 
-Este es los mayor anotador de 3 puntos entre los MVP's de los últimos 10 años.
+Este es los mayor anotador de 3 puntos entre los MVP's de los últimos 9 años.
 
 **Interpretación de la Tabla**
 
@@ -716,7 +722,7 @@ Los 2 jugadores con mas tiros libres en la temporada que ganaron el MVP son:
 
 2.  Giannis Antetokounmpo (2019-20)
 
-Estos son los mayores anotadores de tiros libres entre los MVP's de los últimos 10 años.
+Estos son los mayores anotadores de tiros libres entre los MVP's de los últimos 9 años.
 
 **Interpretación de la Tabla**
 
@@ -730,7 +736,7 @@ MINIMO: El menor anotador es con 171 puntos Kevin Durant (2014-15).
 
 **2.6. PORCENTAJE DE TIROS LIBRE**
 
-Es ta variable nos dice la efectividad de un jugador a la hora de anotar un tiro libre, veamos que nos dice el grafico de barras.
+Es ta variable nos dice la efectividad de un jugador a la hora de anotar un tiro libre, veamos que nos dice el gráfico de barras.
 
 ```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
 #Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
@@ -842,7 +848,7 @@ Los 2 jugadores con mas efectividad de tiros libres anotados en la temporada que
 
 2.  Stephen Curry (2016-17)
 
-Este es los mayor anotador de tiros libre entre los MVP's de los últimos 10 años.
+Este es los mayor anotador de tiros libre entre los MVP's de los últimos 9 años.
 
 **Interpretación de la Tabla**
 
@@ -968,7 +974,7 @@ Los 2 jugadores con mas efectividad de puntos en la temporada que ganaron el MVP
 
 2.  Giannis Antetokounmpo (2020-21).
 
-Este es los mayor efectividad de tiros entre los MVP's de los últimos 10 años.
+Este es los mayor efectividad de tiros entre los MVP's de los últimos 9 años.
 
 **Interpretación de la Tabla**
 
@@ -1112,7 +1118,7 @@ Los 2 jugadores con mayor cantidad de Tapobes en la temporada que ganaron el MVP
 
 3.  Joel Embiid (2023-24)
 
-Este es los mayor efectividad de tiros entre los MVP's de los últimos 10 años.
+Este es los mayor efectividad de tiros entre los MVP's de los últimos 9 años.
 
 **Interpretación de la Tabla**
 
@@ -1237,7 +1243,7 @@ Los 2 jugadores con mayor cantidad de robos en la temporada que ganaron el MVP s
 1.  Stephen Curry (2015-16).
 2.  James Harden (2018-19)
 
-Estos son los jugadores con más robos entre los MVP's de los últimos 10 años.
+Estos son los jugadores con más robos entre los MVP's de los últimos 9 años.
 
 **Interpretación de la Tabla**
 
@@ -1362,7 +1368,7 @@ Los 2 jugadores con mayor cantidad de rebotes defensivos en la temporada que gan
 1.  Nikola Jokic (2021-22).
 2.  Giannis Antetokounmpo (2019-20)
 
-Estos son los jugadores con más rebotes defensivos entre los MVP's de los últimos 10 años.
+Estos son los jugadores con más rebotes defensivos entre los MVP's de los últimos 9 años.
 
 **Interpretación de la Tabla**
 
