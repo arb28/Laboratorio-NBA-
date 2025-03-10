@@ -17,50 +17,52 @@ library(patchwork)
 Data_Frame_NBA <-read_excel("D:\\NBA G1-G10.xlsx","BBDD")
 ```
 
-## Datos Mas Importantes
+## 1. PRESENTACIÓN DE LOS JUGADORES GANADORES DEL MVP EN LOS ULTIMOS 10 AÑOS
+
+Aquí presentamos los jugadores que ganaron el tan codiciado premio a el jugador más valioso de la temporada, podemos ve tanto su edad como la temporada en la que ganaron este titulo y el equipo para el que jugaban, con estos jugadores vamo a re alizar nuestro trabajo de investigación, el cual es encontrarcual es el mejor jugador en las sigientes caracteristicas: 1. Mejor jugador ofensivo. 2. Mejor jugador defensivo. A travez de los gráficos y cálculos de terminaremos quien es el mejor jugader en las características antes mencionadas y justificaré porque son los mejores en esa categoría
 
 ```{r echo=FALSE,message= FALSE, warning=FALSE,fig.width=10, fig.height= 5,fig.align = "center"}
 #Filtrado Por temporada, unicamente desde 2014 hasta 2024
 Datos_MVP_2014 <- Data_Frame_NBA %>%
   filter(Season == "2014-15" & Player == "Kevin Durant")%>%#Aqui estoy filtrando a un jugador que esta en esa temporada
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")# Las variables Ofensivas y Defencivas que vamos a usar
-#Continuamos cvasado en la misma estructura, pero cambiando al jugador y la temporada  
+  select(Season,Player,Age,Team)
+#Continuamos vasado en la misma estructura, pero cambiando al jugador y la temporada  
 
 Datos_MVP_2015 <- Data_Frame_NBA %>%
   filter(Season == "2015-16" & Player == "Stephen Curry")%>% 
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA") 
+  select(Season,Player,Age,Team) 
 
 Datos_MVP_2016 <- Data_Frame_NBA %>%
   filter(Season == "2016-17" & Player == "Stephen Curry")%>%#
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  select(Season,Player,Age,Team)
 
 Datos_MVP_2017 <- Data_Frame_NBA %>%
   filter(Season == "2017-18" & Player == "Russell Westbrook")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA") 
+  select(Season,Player,Age,Team) 
 
 Datos_MVP_2018 <- Data_Frame_NBA %>%
   filter(Season == "2018-19" & Player == "James Harden") %>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA") 
+  select(Season,Player,Age,Team) 
 
 Datos_MVP_2019 <- Data_Frame_NBA %>%
   filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  select(Season,Player,Age,Team)
          
 Datos_MVP_2020 <- Data_Frame_NBA %>%
   filter(Season == "2020-21" & Player == "Giannis Antetokounmpo") %>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  select(Season,Player,Age,Team)
 
 Datos_MVP_2021 <- Data_Frame_NBA %>%
   filter(Season == "2021-22" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  select(Season,Player,Age,Team)
 
 Datos_MVP_2022 <- Data_Frame_NBA %>%
   filter(Season == "2022-23" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  select(Season,Player,Age,Team)
 
 Datos_MVP_2023 <- Data_Frame_NBA %>%
   filter(Season == "2023-24" & Player == "Joel Embiid")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  select(Season,Player,Age,Team)
 
 #Agrupacion de variables
 #bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
@@ -76,10 +78,10 @@ Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2023
                                  )
 # Mostrar la tabla
-kable(Datos_MVPs_2014_2023, caption = "TMVP's de los Úlrimos 10 años", digits = 1)
+kable(Datos_MVPs_2014_2023, caption = "MVP's de los Úlrimos 10 años", digits = 1)
 ```
 
-## Estadisticas Ofensivas
+## 2. ESTADÍSTICAS OFENSIVAS
 
 En este apartado analisaremos las estadisticas ofensivas de cada jugador ganador del premio MVP (Most Value Player) y asi analizar quien es el mejor jugador ofencivo de los ultimos 10 años, tomaremos como definicion de mejor jugador ofencivo al jugador con mas sobresaliencias en este aspecto a estudiar. Tomaremos como criterios para el cálculo variables como:
 
@@ -99,7 +101,7 @@ En este apartado analisaremos las estadisticas ofensivas de cada jugador ganador
 
 Estos se utilizará para estudiar cuales son los mejores 2 mejores jugadores de cada apartado. La forma a comparar estos datos será mediante los gráficos de barras ya que estos nos ayuda a la visualizacion y comparacion de las cantidades.
 
-**ASISTENCIAS**
+**2.1. ASISTENCIAS**
 
 Para este apartado analizaremos mediante el gráfico antes mencionado las asistencias, pero que son las asistencias: en el basquetball las asitensias son el pase previo a una anotación que re aliza un jugador. Sabiendo esto estudiaremos cunatas asistencias hizo cada MVP y obvervaremos quien es el mejor asistidor entre los mejores jugadores de los últimos 10 años.
 
@@ -222,7 +224,7 @@ MAXIMO: El mayor asistidor es Rusell Westbrook con 820 asistensias en una tempor
 
 MINIMO: El menor asistidor es Kevin Durant con 110 asistencias en una temporada.
 
-**PUNTOS**
+**2.2. PUNTOS**
 
 En este apartado compararemos la cantidad de puntos que hicieron en el año que ganaron el MVP, pero sabemos que son los puntos en el Basquetball, los puntos son aquellos que un jugador realiza para ganar un partido, el equipo con mayor número de puntos al final de un partido es el ganador, sabiendo esto las compararemos con un grafico de barras así observando cuales son las cantidades de los mismos para cada jugador.
 
@@ -348,7 +350,7 @@ MAXIMO: El mayor anotador es con 2818 puntos James Harden (2018-19)-
 
 MINIMO: El menor anotador es con 686 puntos Kevin Durant (2014-15).
 
-**TIROS DE 3**
+**2.3. TIROS DE 3**
 
 Los tiros de 3 son aquellos puntos que son lanzados de una distancia mayor a 6,7 metros con respecto a aro, estos puntos valen mas por su distancia, a continuación observaremos quienes son los mejores 2 anotadores de 3 entre los los MVP's, para ello usaremos graficos de barras para compararlo con los demás.
 
@@ -474,7 +476,7 @@ MAXIMO: El mayor anotador es con 402 puntos Stephen Curry(2015-16).
 
 MINIMO: El menor anotador es con 54 puntos Joel Embiid (2014-15) y con 54 Kevin Durant(2014-15).
 
-**PORCENTAJE DE TIROS DE 3**
+**2.4. PORCENTAJE DE TIROS DE 3**
 
 Esta variable estudia cual es la efectividad de los tiro de 3 de los MVP's, paara el estudio de la misma variable usaremos como venimos haciendo, un gráfico de barras para observar las diferentes cantidades que representan.
 
@@ -600,7 +602,7 @@ MAXIMO: El mayor anotador es con 45,4% puntos Stephen Curry(2015-16).
 
 MINIMO: El menor anotador es con 28,8 puntos Russell Westbrook (2017-18).
 
-**TIROS LIBRE**
+**2.5. TIROS LIBRE**
 
 Son los puntos que se anotan al momento de pitar una falta afavor en area rival, este tiro se realiza a 4,57 metros del aro aproximadamente. Usaremos para la interpretación un gráfico de barras
 
@@ -726,7 +728,7 @@ MAXIMO: El mayor anotador es con 858 puntos James Harden (2018-19).
 
 MINIMO: El menor anotador es con 171 puntos Kevin Durant (2014-15).
 
-**PORCENTAJE DE TIROS LIBRE**
+**2.6. PORCENTAJE DE TIROS LIBRE**
 
 Es ta variable nos dice la efectividad de un jugador a la hora de anotar un tiro libre, veamos que nos dice el grafico de barras.
 
@@ -834,7 +836,7 @@ kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS EFECTIVIDAD DE TIROS L
 
 **Interpretación de la Gráfica**
 
-Los 2 jugadores con mas puntos anotados en tiros libres en la temporada que ganaron el MVP son:
+Los 2 jugadores con mas efectividad de tiros libres anotados en la temporada que ganaron el MVP son:
 
 1.  Stephen Curry (2015-16)
 
@@ -852,7 +854,7 @@ MAXIMO: El mayor anotador de tiros libres es con 90,8% puntos Stephen Curry(2015
 
 MINIMO: El menor anotador de tiros libres es con 63,3% puntos Giannis Antetokounmpo (2019-20).
 
-**PORCENTAJE DE TIRO**
+**2.7. PORCENTAJE DE TIRO**
 
 Este dato nos proporciona la efectividad que tiene un jugador a la hora de tirar, ya sea de 3, de 2 o un tiro libre. Usaremos el gráfico de barras para visualizar los datos.
 
@@ -962,9 +964,9 @@ kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS EFECTIVIDAD DE TIROS",
 
 Los 2 jugadores con mas efectividad de puntos en la temporada que ganaron el MVP son:
 
-1.  Giannis Antetokounmpo (2021-22).
+1.  Giannis Antetokounmpo (2019-20).
 
-2.  Giannis Antetokounmpo (2022-23).
+2.  Giannis Antetokounmpo (2020-21).
 
 Este es los mayor efectividad de tiros entre los MVP's de los últimos 10 años.
 
@@ -974,23 +976,27 @@ PROMEDIO: El promedio de la efectividad en los tiros de los jugadores ganadores 
 
 DESVIACIÓN ESTANDAR: La desviación estandar de la efectividad de los tiros es de 6,2% puntos, lo cual nos dice que los datos no son muy variable.
 
-MAXIMO: El anotador con más efectividad de tiros es con 63,2% puntos Giannis Antetokounmpo(2022-23).
+MAXIMO: El anotador con más efectividad de tiros es con 63,2% puntos Giannis Antetokounmpo(2020-21).
 
 MINIMO: El anotador con menos efectividad de tiros es con 44,2% puntos James Harden (2018-19).
 
-## Estadísticas Defensivas
+## 2.8. CONCLUSIÓN
+
+Luego de realizar esta investigacion llegamos la conclucion que el mejor jugador ofensivo es Stephen Curry, no solo aparce entre los mejores 2 en casi todas las categorias, si no que también es el de mejores estadísticas en general, definitivamente el es el mayor anotador de tiros de 3, sino que es tambien el jugador mas efectivo en tiros libre.
+
+## 3. ESTADÍSTICAS DEFENSIVAS
+
+En esta sección estudiaremos las caracteristicas defensivas de los MVP's en las temporadas 2014 a 2024 para saber quien es el mejor jugador defensivo, para saber esto tomaremos a los mejores 2 jugadores de cada categoria y veremos quien es el que mas veces esta en esos puesto, los criterios que usaremos para saber quien es el mejor jugador defensivo son:
 
 1.Tapones
 
 2.Robos
 
-5.Rebotes Defencivos
+3.Rebotes Defencivos
 
-3.Predidas de Balón
+**3.1. TAPONES**
 
-6.Faltas Personales
-
-**TAPONES**
+Es cuando uj jugador evita la canasta tocando el balón antes que llegue a la altura máxima de la parabola que realiza el valon al ser lanzado.
 
 ```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
 #Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
@@ -1094,7 +1100,33 @@ Datos_estadisticos <- Datos_MVPs_2014_2023%>%
 kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS TAPONES",digit = 1)
 ```
 
-**ROBOS**
+**Interpretación de la Gráfica**
+
+Los 2 jugadores con mayor cantidad de Tapobes en la temporada que ganaron el MVP son:
+
+1.  Giannis Antetokounmpo (2019-20).
+
+**Comparten el segundo puesto**
+
+2.  Giannis Antetokounmpo (2020-21).
+
+3.  Joel Embiid (2023-24)
+
+Este es los mayor efectividad de tiros entre los MVP's de los últimos 10 años.
+
+**Interpretación de la Tabla**
+
+PROMEDIO: El promedio de tapones de los jugadores ganadores del MVP es de 45
+
+DESVIACIÓN ESTANDAR: La desviación estandar de los tapones es de 23,3 puntos, lo cual nos dice que los datos no son muy variable.
+
+MAXIMO: El jugador con más tapones es con 73 puntos Giannis Antetokounmpo(2020-21).
+
+MINIMO: El menor jugador con tapones es con 15 puntos Stephen Curry (2015-16).
+
+**3.2. ROBOS**
+
+Es cuando un jugador le quita la posecion de balón a otro en cualquier circunstancia del partido
 
 ```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
 #Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
@@ -1198,7 +1230,28 @@ Datos_estadisticos <- Datos_MVPs_2014_2023%>%
 kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE ROBOS",digit = 1)
 ```
 
-**REBOTES DEFENSIVOS**
+**Interpretación de la Gráfica**
+
+Los 2 jugadores con mayor cantidad de robos en la temporada que ganaron el MVP son:
+
+1.  Stephen Curry (2015-16).
+2.  James Harden (2018-19)
+
+Estos son los jugadores con más robos entre los MVP's de los últimos 10 años.
+
+**Interpretación de la Tabla**
+
+PROMEDIO: El promedio de robos de los jugadores ganadores del MVP es de 101.5
+
+DESVIACIÓN ESTANDAR: La desviación estandar de los robos es de 50.9 puntos, lo cual nos dice que los datos son muy variable.
+
+MAXIMO: El jugador con más robos es con 169 puntos Stephen Curry (2015-16).
+
+MINIMO: El menor jugador con robos es con 24 puntos Joel Embiid (2023-24).
+
+**3.3. REBOTES DEFENSIVOS**
+
+Los rebotes defensivos son las recuperaciones del balón que se producen cuando el equipo contrario falla un tiro y éste rebota. Obvervemos con un gráfico de barras como actúan esos datos.
 
 ```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
 #Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
@@ -1301,3 +1354,26 @@ Datos_estadisticos <- Datos_MVPs_2014_2023%>%
   )
 kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS REBOTES DEFENSIVOS",digit = 1)
 ```
+
+**Interpretación de la Gráfica**
+
+Los 2 jugadores con mayor cantidad de rebotes defensivos en la temporada que ganaron el MVP son:
+
+1.  Nikola Jokic (2021-22).
+2.  Giannis Antetokounmpo (2019-20)
+
+Estos son los jugadores con más rebotes defensivos entre los MVP's de los últimos 10 años.
+
+**Interpretación de la Tabla**
+
+PROMEDIO: El promedio de los rebotes defensivos de los jugadores ganadores del MVP es de 500,8
+
+DESVIACIÓN ESTANDAR: La desviación estandar de los rebotes defensivos es de 211,3 puntos, lo cual nos dice que los datos son muy variable.
+
+MAXIMO: El jugador con más rebotes defensivos es con 169 puntos Nikola Jokic (2021-22).
+
+MINIMO: El menor jugador con rebotes defensivos es con 24 puntos Kevin Durant (2014-15).
+
+## 3.4. CONCLUSIÓN
+
+El mejor jugador defensivo es Giannis Antetokounmpo este jugador esta entre los mejores 2 en la mayoría de categorias, lo cual lo hace el mejor jugador defensivo entre los MVP's.
