@@ -101,7 +101,7 @@ Estos se utilizará para estudiar cuales son los mejores 2 mejores jugadores de 
 
 **ASISTENCIAS**
 
-Para este apartado analizaremos mediante el gráfico antes mencionado las asistencias, pero que son las asistencias: en el basquetball las asitensias son el pase previo a una anotación que re aliza un jugador. Sabiendo esto estudiaremos cunatas asistencias hizo cada MVP y obvervaremos quien es el mejor asistidor entre los mejores jugadores de los últimos 10 años
+Para este apartado analizaremos mediante el gráfico antes mencionado las asistencias, pero que son las asistencias: en el basquetball las asitensias son el pase previo a una anotación que re aliza un jugador. Sabiendo esto estudiaremos cunatas asistencias hizo cada MVP y obvervaremos quien es el mejor asistidor entre los mejores jugadores de los últimos 10 años.
 
 ```{r echo=FALSE, fig.align="center", fig.height=6, fig.width=10}
 #Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
@@ -202,10 +202,12 @@ Datos_estadisticos <- Datos_MVPs_2014_2023%>%
     AST_Min = min(AST, na.rm = TRUE),
     AST_Max = max(AST, na.rm = TRUE),
   )
-kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LAS ASISTENCIAS")
+kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LAS ASISTENCIAS",digit = 1)
 ```
 
-**Interpretación de la Gráfica** Podemos observar en la grafica que los jugadores con mas asistencias son:
+**Interpretación de la Gráfica**
+
+Podemos observar en la grafica que los jugadores con mas asistencias son:
 
 1.  Rusell Westbrook (2017-18).
 2.  Nikola Jokic (2022-23). Estos son los mejores asistidores entre los MVP's de los ultimos 10 años.
@@ -214,13 +216,15 @@ kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LAS ASISTENCIAS")
 
 PROMEDIO: El promedio de las asistencias de los ganadores del MVP de los últimos 10 años es de 475.9 por temporada.
 
-DESVIACION ESTANDAR: La desviasion estandar es de 215,21, lo cual quiere decir que los datos varian mucho y su media no es significativa ya que hay valores muy cambiantes.
+DESVIACIÓN ESTANDAR: La desviación estandar es de 215,21, lo cual quiere decir que los datos varian mucho y su media no es significativa ya que hay valores muy cambiantes.
 
 MAXIMO: El mayor asistidor es Rusell Westbrook con 820 asistensias en una temporada.
 
 MINIMO: El menor asistidor es Kevin Durant con 110 asistencias en una temporada.
 
-**PUNTOS** En este apartado compararemos la cantidad de puntos que hicieron en el año que ganaron el MVP, pero sabemos que son los puntos en el Basquetball, los puntos son aquellos que un jugador realiza para ganar un partido, el equipo con mayor número de puntos al final de un partido es el ganador, sabiendo esto las compararemos con un grafico de barras así observando cuales son las cantidades de los mismos para cada jugador.
+**PUNTOS**
+
+En este apartado compararemos la cantidad de puntos que hicieron en el año que ganaron el MVP, pero sabemos que son los puntos en el Basquetball, los puntos son aquellos que un jugador realiza para ganar un partido, el equipo con mayor número de puntos al final de un partido es el ganador, sabiendo esto las compararemos con un grafico de barras así observando cuales son las cantidades de los mismos para cada jugador.
 
 ```{r echo=FALSE, fig.align="center", fig.height=6, fig.width=10}
 #Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
@@ -321,16 +325,32 @@ Datos_estadisticos <- Datos_MVPs_2014_2023%>%
     PTS_Min = min(PTS, na.rm = TRUE),
     PTS_Max = max(PTS, na.rm = TRUE),
   )
-kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS PUNTOS")
+kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS PUNTOS",digit = 1)
 ```
 
-**Interpretación de la Gráfica** Los 2 jugadores con mas puntos anotados en la temporada que ganaron el MVP son: 1. James Harden(2017-18) 2. Stephen Curry(2015-16) Estos son los mayores anotadores entre los MVP's de los últimos 10 años **I**
+**Interpretación de la Gráfica**
 
-**nterpretaicón de la Tabla**
+Los 2 jugadores con mas puntos anotados en la temporada que ganaron el MVP son:
 
-PROMEDIO
+1.  James Harden (2017-18)
+
+2.  Stephen Curry (2015-16)
+
+Estos son los mayores anotadores entre los MVP's de los últimos 10 años
+
+**Interpretaicón de la Tabla**
+
+PROMEDIO: El promedio de puntos de los jugadores ganadores del MVP es de 1852.7 puntos
+
+DESVIACIÓN ESTANDAR: La desviación estandar de los puntos anotados es de 571,1 puntos, lo cual nos dice que los datos son muy variable.
+
+MAXIMO: El mayor anotador es con 2818 puntos James Harden (2018-19)-
+
+MINIMO: El menor anotador es con 686 puntos Kevin Durant (2014-15).
 
 **TIROS DE 3**
+
+Los tiros de 3 son aquellos puntos que son lanzados de una distancia mayor a 6,7 metros con respecto a aro, estos puntos valen mas por su distancia, a continuación observaremos quienes son los mejores 2 anotadores de 3 entre los los MVP's, para ello usaremos graficos de barras para compararlo con los demás.
 
 ```{r echo=FALSE, fig.align="center", fig.height=6, fig.width=10}
 #Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
@@ -431,10 +451,32 @@ Datos_estadisticos <- Datos_MVPs_2014_2023%>%
     T3_Min = min(`3PM`, na.rm = TRUE),
     T3_Max = max(`3PM`, na.rm = TRUE),
   )
-kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS TIROS DE 3 ANOTADOS")
+kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS TIROS DE 3 ANOTADOS",digit = 1)
 ```
 
+**Interpretación de la Gráfica**
+
+Los 2 jugadores con mas puntos anotados en la temporada que ganaron el MVP son:
+
+1.  Stephen Curry (2015-16)
+
+2.  James Harden (2018-19)
+
+Estos son los mayores anotadores de 3 puntos entre los MVP's de los últimos 10 años.
+
+**Interpretación de la Tabla**
+
+PROMEDIO: El promedio de 3 puntos de los jugadores ganadores del MVP es de 162,9 puntos
+
+DESVIACIÓN ESTANDAR: La desviación estandar de los puntos anotados de 3 es de 143,6 puntos, lo cual nos dice que los datos son muy variable.
+
+MAXIMO: El mayor anotador es con 402 puntos Stephen Curry(2015-16).
+
+MINIMO: El menor anotador es con 54 puntos Joel Embiid (2014-15) y con 54 Kevin Durant(2014-15).
+
 **PORCENTAJE DE TIROS DE 3**
+
+Esta variable estudia cual es la efectividad de los tiro de 3 de los MVP's, paara el estudio de la misma variable usaremos como venimos haciendo, un gráfico de barras para observar las diferentes cantidades que representan.
 
 ```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
 #Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
@@ -535,10 +577,32 @@ Datos_estadisticos <- Datos_MVPs_2014_2023%>%
     T3_Min = min(`3P%`, na.rm = TRUE),
     T3_Max = max(`3P%`, na.rm = TRUE),
   )
-kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS TIROS DE 3 ANOTADOS")
+kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS TIROS DE 3 ANOTADOS",digit = 1)
 ```
 
+**Interpretación de la Gráfica**
+
+Los 2 jugadores con mas puntos anotados en la temporada que ganaron el MVP son:
+
+1.  Stephen Curry (2015-16)
+
+2.  Stephen Curry (2016-17)
+
+Este es los mayor anotador de 3 puntos entre los MVP's de los últimos 10 años.
+
+**Interpretación de la Tabla**
+
+PROMEDIO: El promedio de la efectividad en los tires de 3 de los jugadores ganadores del MVP es de 36.5% puntos
+
+DESVIACIÓN ESTANDAR: La desviación estandar de la efectividad de los puntos anotados de 3 es de 5,3 puntos, lo cual nos dice que los datos no son muy variable.
+
+MAXIMO: El mayor anotador es con 45,4% puntos Stephen Curry(2015-16).
+
+MINIMO: El menor anotador es con 28,8 puntos Russell Westbrook (2017-18).
+
 **TIROS LIBRE**
+
+Son los puntos que se anotan al momento de pitar una falta afavor en area rival, este tiro se realiza a 4,57 metros del aro aproximadamente. Usaremos para la interpretación un gráfico de barras
 
 ```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
 #Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
@@ -639,10 +703,32 @@ Datos_estadisticos <- Datos_MVPs_2014_2023%>%
     FTA_Min = min(FTA, na.rm = TRUE),
     FTA_Max = max(FTA, na.rm = TRUE),
   )
-kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS TIROS LIBRES ANOTADOS")
+kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS TIROS LIBRES ANOTADOS",digit = 1)
 ```
 
+**Interpretación de la Gráfica**
+
+Los 2 jugadores con mas tiros libres en la temporada que ganaron el MVP son:
+
+1.  James Harden (2018-19)
+
+2.  Giannis Antetokounmpo (2019-20)
+
+Estos son los mayores anotadores de tiros libres entre los MVP's de los últimos 10 años.
+
+**Interpretación de la Tabla**
+
+PROMEDIO: El promedio de los tiros libres de los jugadores ganadores del MVP es de 409,2 puntos
+
+DESVIACIÓN ESTANDAR: La desviación estandar de los tiros libres es de 183,4 puntos, lo cual nos dice que los datos son muy variable.
+
+MAXIMO: El mayor anotador es con 858 puntos James Harden (2018-19).
+
+MINIMO: El menor anotador es con 171 puntos Kevin Durant (2014-15).
+
 **PORCENTAJE DE TIROS LIBRE**
+
+Es ta variable nos dice la efectividad de un jugador a la hora de anotar un tiro libre, veamos que nos dice el grafico de barras.
 
 ```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
 #Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
@@ -743,10 +829,32 @@ Datos_estadisticos <- Datos_MVPs_2014_2023%>%
     FT_Min = min(`FT%`, na.rm = TRUE),
     FT_Max = max(`FT%`, na.rm = TRUE),
   )
-kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS EFECTIVIDAD DE TIROS LIBRES")
+kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS EFECTIVIDAD DE TIROS LIBRES",digit = 1)
 ```
 
+**Interpretación de la Gráfica**
+
+Los 2 jugadores con mas puntos anotados en tiros libres en la temporada que ganaron el MVP son:
+
+1.  Stephen Curry (2015-16)
+
+2.  Stephen Curry (2016-17)
+
+Este es los mayor anotador de tiros libre entre los MVP's de los últimos 10 años.
+
+**Interpretación de la Tabla**
+
+PROMEDIO: El promedio de la efectividad en los tiros libre de los jugadores ganadores del MVP es de 81,1%
+
+DESVIACIÓN ESTANDAR: La desviación estandar de la efectividad de los tiros libres anotados de 3 es de 9,5 puntos, lo cual nos dice que los datos no son muy variable.
+
+MAXIMO: El mayor anotador de tiros libres es con 90,8% puntos Stephen Curry(2015-16).
+
+MINIMO: El menor anotador de tiros libres es con 63,3% puntos Giannis Antetokounmpo (2019-20).
+
 **PORCENTAJE DE TIRO**
+
+Este dato nos proporciona la efectividad que tiene un jugador a la hora de tirar, ya sea de 3, de 2 o un tiro libre. Usaremos el gráfico de barras para visualizar los datos.
 
 ```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
 #Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
@@ -847,8 +955,28 @@ Datos_estadisticos <- Datos_MVPs_2014_2023%>%
     FG_Min = min(`FG%`, na.rm = TRUE),
     FG_Max = max(`FG%`, na.rm = TRUE),
   )
-kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS EFECTIVIDAD DE TIROS")
+kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS EFECTIVIDAD DE TIROS",digit = 1)
 ```
+
+**Interpretación de la Gráfica**
+
+Los 2 jugadores con mas efectividad de puntos en la temporada que ganaron el MVP son:
+
+1.  Giannis Antetokounmpo (2021-22).
+
+2.  Giannis Antetokounmpo (2022-23).
+
+Este es los mayor efectividad de tiros entre los MVP's de los últimos 10 años.
+
+**Interpretación de la Tabla**
+
+PROMEDIO: El promedio de la efectividad en los tiros de los jugadores ganadores del MVP es de 52,4%
+
+DESVIACIÓN ESTANDAR: La desviación estandar de la efectividad de los tiros es de 6,2% puntos, lo cual nos dice que los datos no son muy variable.
+
+MAXIMO: El anotador con más efectividad de tiros es con 63,2% puntos Giannis Antetokounmpo(2022-23).
+
+MINIMO: El anotador con menos efectividad de tiros es con 44,2% puntos James Harden (2018-19).
 
 ## Estadísticas Defensivas
 
@@ -963,7 +1091,7 @@ Datos_estadisticos <- Datos_MVPs_2014_2023%>%
     FG_Min = min(BLK, na.rm = TRUE),
     FG_Max = max(BLK, na.rm = TRUE),
   )
-kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS TAPONES")
+kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS TAPONES",digit = 1)
 ```
 
 **ROBOS**
@@ -1067,7 +1195,7 @@ Datos_estadisticos <- Datos_MVPs_2014_2023%>%
     STL_Min = min(STL, na.rm = TRUE),
     STL_Max = max(STL, na.rm = TRUE),
   )
-kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE ROBOS")
+kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE ROBOS",digit = 1)
 ```
 
 **REBOTES DEFENSIVOS**
@@ -1171,5 +1299,5 @@ Datos_estadisticos <- Datos_MVPs_2014_2023%>%
    DREB_Min = min(DREB, na.rm = TRUE),
     DREB_Max = max(DREB, na.rm = TRUE),
   )
-kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS REBOTES DEFENSIVOS")
+kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS REBOTES DEFENSIVOS",digit = 1)
 ```
