@@ -105,17 +105,17 @@ En este apartado analisaremos las estadisticas ofensivas de cada jugador ganador
 
 7.Porcentaje de Tiro.
 
-Estos se utilizará para estudiar cuales son los mejores 2 mejores jugadores de cada apartado. La forma a comparar estos datos será mediante los gráficos de barras ya que estos nos ayuda a la visualizacion y comparacion de las cantidades.
+Esto se utilizará para estudiar cuales son los mejores 2 mejores jugadores de cada apartado. La forma a comparar estos datos será mediante los gráficos de barras ya que estos nos ayuda a la visualizacion y comparacion de las cantidades.
 
 **2.1. ASISTENCIAS**
 
-Para este apartado analizaremos mediante el gráfico antes mencionado las asistencias, pero que son las asistencias: en el basquetball las asitensias son el pase previo a una anotación que re aliza un jugador. Sabiendo esto estudiaremos cunatas asistencias hizo cada MVP y obvervaremos quien es el mejor asistidor entre los mejores jugadores de los últimos 10 años.
+Para este apartado analizaremos mediante el gráfico antes mencionado las asistencias, pero que son las asistencias: en el basquetball las asitensias son el pase previo a una anotación que realiza un jugador. Sabiendo esto estudiaremos cunatas asistencias hizo cada MVP y obvervaremos quien es el mejor asistidor entre los mejores jugadores de los últimos 10 años.
 
 ```{r echo=FALSE, fig.align="center", fig.height=6, fig.width=10}
 #Filtrado Por temporada, unicamente desde 2014 hasta 2024
 Datos_MVP_2014 <- Data_Frame_NBA %>%
   filter(Season == "2014-15" & Player == "Stephen Curry")
-#Continuamos vasado en la misma estructura, pero cambiando al jugador y la temporada  
+#Continuamos basado en la misma estructura, pero cambiando al jugador y la temporada  
 
 Datos_MVP_2015 <- Data_Frame_NBA %>%
   filter(Season == "2015-16" & Player == "Stephen Curry")
@@ -147,7 +147,7 @@ Datos_MVP_2023 <- Data_Frame_NBA %>%
   filter(Season == "2023-24" & Player == "Nikola Jokic")
 
 #Agrupacion de variables
-#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
+#bind_rows(): es una funcion en la que puedo agrupar distintos objetos, en este caso las variables que tengo definidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
@@ -165,7 +165,7 @@ Graficos_1 <- Datos_MVPs_2014_2023%>%
   select(AST,Player,Season)%>%
   ggplot(aes(x=Season, y=AST, fill = Player))+
   geom_bar(stat = "identity")+#GRafico de BARRAS
-  geom_text(aes(label = AST), vjust = -0.2, colour = "black")+ #Agregamos la cantidad de asistencios que tuvo un jugador
+  geom_text(aes(label = AST), vjust = -0.2, colour = "black")+ #Agregamos la cantidad de asistencios que tuvo un jugador.
 #Estilizancion de la grafica
    scale_fill_manual(values = c(
                                 "Stephen Curry"="#FFC300",
@@ -253,7 +253,7 @@ Datos_MVP_2023 <- Data_Frame_NBA %>%
   filter(Season == "2023-24" & Player == "Nikola Jokic")
 
 #Agrupacion de variables
-#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
+#bind_rows(): es una funcion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
@@ -359,7 +359,7 @@ Datos_MVP_2023 <- Data_Frame_NBA %>%
   filter(Season == "2023-24" & Player == "Nikola Jokic")
 
 #Agrupacion de variables
-#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
+#bind_rows(): es una funcion en la que puedo agrupar distintos objetos, en este caso las variables que tengo definidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
