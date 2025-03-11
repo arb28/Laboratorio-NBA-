@@ -11,4 +11,4 @@ Los jugadores galardonados con este importante premio en los ultimos 10 años so
 - Nikola Jokic (3) (2020-2021, 2021-2022, 2023-2024)
 - Joel Embiid (2022-2023)
 
-El objetivo general de este trabajo de investigación es el de tratar de definir quien de esta lista es el mejor jugador ofensivo y quien es el mejor jugador defensivo, todo esto mediante el uso de tecnicas estadisticas, gráficos, y otros cálculos que permitan observar de una manera clara y precisa las estadísticas de cada uno de estos jugadores de elite.
+El objetivo general de este trabajo de investigación es el de tratar de definir quien de esta lista es el mejor jugador ofensivo y quien es el mejor jugador defensivo, todo esto mediante el uso de tecnicas estadisticas, gráficos, y otros cálculos que permitan comparar y observar de una manera clara y precisa las estadísticas de cada uno de estos jugadores de elite.
