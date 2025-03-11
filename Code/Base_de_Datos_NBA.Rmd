@@ -866,7 +866,7 @@ En esta sección estudiaremos las caracteristicas defensivas de los MVP's en las
 
 2.Robos
 
-3.Rebotes Defencivos
+3.Rebotes Defensivos
 
 **3.1. TAPONES**
 
@@ -905,7 +905,7 @@ Datos_MVP_2023 <- Data_Frame_NBA %>%
   filter(Season == "2023-24" & Player == "Nikola Jokic")
 
 #Agrupacion de variables
-#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
+#bind_rows(): es una funcion en la que puedo agrupar distintos objetos, en este caso las variables que tengo definidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
@@ -1011,7 +1011,7 @@ Datos_MVP_2023 <- Data_Frame_NBA %>%
   filter(Season == "2023-24" & Player == "Nikola Jokic")
 
 #Agrupacion de variables
-#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
+#bind_rows(): es una funcion en la que puedo agrupar distintos objetos, en este caso las variables que tengo definidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
@@ -1029,7 +1029,7 @@ Graficos_1 <- Datos_MVPs_2014_2023%>%
   select(STL,Player,Season)%>%
   ggplot(aes(x=Season, y=STL, fill = Player))+
   geom_bar(stat = "identity")+#GRafico de BARRAS
-  geom_text(aes(label = STL), vjust = -0.2, colour = "black")+ #Agregamos la cantidad de asistencios que tuvo un jugador
+  geom_text(aes(label = STL), vjust = -0.2, colour = "black")+ #Agregamos la cantidad de asistencias que tuvo un jugador
 #Estilizancion de la grafica
    scale_fill_manual(values = c(
                                 "Stephen Curry"="#FFC300",
@@ -1218,7 +1218,7 @@ Datos_MVP_2023 <- Data_Frame_NBA %>%
   filter(Season == "2023-24" & Player == "Nikola Jokic")
 
 #Agrupacion de variables
-#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
+#bind_rows(): es una funcion en la que puedo agrupar distintos objetos, en este caso las variables que tengo definidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
