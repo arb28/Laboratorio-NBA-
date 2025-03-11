@@ -17,7 +17,7 @@ library(patchwork)
 Data_Frame_NBA <-read_excel("D:\\NBA G1-G10.xlsx","BBDD")
 ```
 
-## 1. PRESENTACIÓN DE LOS JUGADORES GANADORES DEL MVP EN LOS ULTIMOS 9 AÑOS
+## 1. PRESENTACIÓN DE LOS JUGADORES GANADORES DEL MVP EN LOS ULTIMOS 10 AÑOS
 
 Aquí presentamos los jugadores que ganaron el tan codiciado premio a el jugador más valioso de la temporada, podemos ve tanto su edad como la temporada en la que ganaron este titulo y el equipo para el que jugaban, con estos jugadores vamo a re alizar nuestro trabajo de investigación, el cual es encontrarcual es el mejor jugador en las sigientes caracteristicas:
 
@@ -30,7 +30,7 @@ A travez de los gráficos y cálculos de terminaremos quien es el mejor jugader 
 ```{r echo=FALSE,message= FALSE, warning=FALSE,fig.width=10, fig.height= 5,fig.align = "center"}
 #Filtrado Por temporada, unicamente desde 2014 hasta 2024
 Datos_MVP_2014 <- Data_Frame_NBA %>%
-  filter(Season == "2014-15" & Player == "Kevin Durant")%>%#Aqui estoy filtrando a un jugador que esta en esa temporada
+  filter(Season == "2014-15" & Player == "Stephen Curry")%>%#Aqui estoy filtrando a un jugador que esta en esa temporada
   select(Season,Player,Age,Team,Position)
 #Continuamos vasado en la misma estructura, pero cambiando al jugador y la temporada  
 
@@ -39,15 +39,15 @@ Datos_MVP_2015 <- Data_Frame_NBA %>%
   select(Season,Player,Age,Team,Position) 
 
 Datos_MVP_2016 <- Data_Frame_NBA %>%
-  filter(Season == "2016-17" & Player == "Stephen Curry")%>%#
+  filter(Season == "2016-17" & Player == "Russell Westbrook")%>%#
   select(Season,Player,Age,Team,Position)
 
 Datos_MVP_2017 <- Data_Frame_NBA %>%
-  filter(Season == "2017-18" & Player == "Russell Westbrook")%>%
+  filter(Season == "2017-18" & Player == "James Harden")%>%
   select(Season,Player,Age,Team,Position) 
 
 Datos_MVP_2018 <- Data_Frame_NBA %>%
-  filter(Season == "2018-19" & Player == "James Harden") %>%
+  filter(Season == "2018-19" & Player == "Giannis Antetokounmpo") %>%
   select(Season,Player,Age,Team,Position) 
 
 Datos_MVP_2019 <- Data_Frame_NBA %>%
@@ -55,7 +55,7 @@ Datos_MVP_2019 <- Data_Frame_NBA %>%
   select(Season,Player,Age,Team,Position)
          
 Datos_MVP_2020 <- Data_Frame_NBA %>%
-  filter(Season == "2020-21" & Player == "Giannis Antetokounmpo") %>%
+  filter(Season == "2020-21" & Player == "Nikola Jokic") %>%
   select(Season,Player,Age,Team,Position)
 
 Datos_MVP_2021 <- Data_Frame_NBA %>%
@@ -63,11 +63,11 @@ Datos_MVP_2021 <- Data_Frame_NBA %>%
   select(Season,Player,Age,Team,Position)
 
 Datos_MVP_2022 <- Data_Frame_NBA %>%
-  filter(Season == "2022-23" & Player == "Nikola Jokic")%>%
+  filter(Season == "2022-23" & Player == "Joel Embiid")%>%
   select(Season,Player,Age,Team,Position)
 
 Datos_MVP_2023 <- Data_Frame_NBA %>%
-  filter(Season == "2023-24" & Player == "Joel Embiid")%>%
+  filter(Season == "2023-24" & Player == "Nikola Jokic")%>%
   select(Season,Player,Age,Team,Position)
 
 #Agrupacion de variables
@@ -109,62 +109,45 @@ Estos se utilizará para estudiar cuales son los mejores 2 mejores jugadores de 
 
 **2.1. ASISTENCIAS**
 
-Para este apartado analizaremos mediante el gráfico antes mencionado las asistencias, pero que son las asistencias: en el basquetball las asitensias son el pase previo a una anotación que re aliza un jugador. Sabiendo esto estudiaremos cunatas asistencias hizo cada MVP y obvervaremos quien es el mejor asistidor entre los mejores jugadores de los últimos 9 años.
+Para este apartado analizaremos mediante el gráfico antes mencionado las asistencias, pero que son las asistencias: en el basquetball las asitensias son el pase previo a una anotación que re aliza un jugador. Sabiendo esto estudiaremos cunatas asistencias hizo cada MVP y obvervaremos quien es el mejor asistidor entre los mejores jugadores de los últimos 10 años.
 
 ```{r echo=FALSE, fig.align="center", fig.height=6, fig.width=10}
-#Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
-
-#JUGADOR n°1
+#Filtrado Por temporada, unicamente desde 2014 hasta 2024
 Datos_MVP_2014 <- Data_Frame_NBA %>%
-  filter(Season == "2014-15" & Player == "Kevin Durant")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2014-15" & Player == "Stephen Curry")
+#Continuamos vasado en la misma estructura, pero cambiando al jugador y la temporada  
 
-#JUGADOR n°2
 Datos_MVP_2015 <- Data_Frame_NBA %>%
-  filter(Season == "2015-16" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2015-16" & Player == "Stephen Curry")
 
-#JUGADOR n°3
 Datos_MVP_2016 <- Data_Frame_NBA %>%
-  filter(Season == "2016-17" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2016-17" & Player == "Russell Westbrook")
 
-#JUGADOR n°4
 Datos_MVP_2017 <- Data_Frame_NBA %>%
-  filter(Season == "2017-18" & Player == "Russell Westbrook")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA") 
+  filter(Season == "2017-18" & Player == "James Harden")
 
-#JUGADOR n°5
 Datos_MVP_2018 <- Data_Frame_NBA %>%
-  filter(Season == "2018-19" & Player == "James Harden")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2018-19" & Player == "Giannis Antetokounmpo")
 
-#JUGADOR n°6
 Datos_MVP_2019 <- Data_Frame_NBA %>%
-  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
-
-#JUGADOR n°7         
+  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")
+         
 Datos_MVP_2020 <- Data_Frame_NBA %>%
-  filter(Season == "2020-21" & Player == "Giannis Antetokounmpo") %>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2020-21" & Player == "Nikola Jokic")
 
-#JUGADOR n°8
 Datos_MVP_2021 <- Data_Frame_NBA %>%
   filter(Season == "2021-22" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  select(AST,Season,Player,Age,Team,Position)
 
-#JUGADOR n°9
 Datos_MVP_2022 <- Data_Frame_NBA %>%
-  filter(Season == "2022-23" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2022-23" & Player == "Joel Embiid")%>%
+  select(AST,Season,Player,Age,Team,Position)
 
-#JUGADOR n°10
 Datos_MVP_2023 <- Data_Frame_NBA %>%
-  filter(Season == "2023-24" & Player == "Joel Embiid")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2023-24" & Player == "Nikola Jokic")
 
-#AGRUPANDO LOS DATOS CON BIND_ROWS()         
+#Agrupacion de variables
+#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
@@ -184,7 +167,7 @@ Graficos_1 <- Datos_MVPs_2014_2023%>%
   geom_bar(stat = "identity")+#GRafico de BARRAS
   geom_text(aes(label = AST), vjust = -0.2, colour = "black")+ #Agregamos la cantidad de asistencios que tuvo un jugador
 #Estilizancion de la grafica
-   scale_fill_manual(values = c("Kevin Durant"="#DAF7A6",
+   scale_fill_manual(values = c(
                                 "Stephen Curry"="#FFC300",
                                 "Stephen Curry"="#FFC300",
                                 "Russell Westbrook"="#FF5733",
@@ -218,76 +201,59 @@ kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LAS ASISTENCIAS",di
 Podemos observar en la grafica que los jugadores con mas asistencias son:
 
 1.  Rusell Westbrook (2017-18).
-2.  Nikola Jokic (2022-23). Estos son los mejores asistidores entre los MVP's de los ultimos 9 años.
+
+2.  Nikola Jokic (2023-24).
+
+Estos son los mejores asistidores entre los MVP's de los ultimos 10 años.
 
 **Interpretación de la Tabla**
 
-PROMEDIO: El promedio de las asistencias de los ganadores del MVP de los últimos 9 años es de 475.9 por temporada.
+PROMEDIO: El promedio de las asistencias de los ganadores del MVP de los últimos 10 años es de 555.9 por temporada.
 
-DESVIACIÓN ESTANDAR: La desviación estandar es de 215,21, lo cual quiere decir que los datos varian mucho y su media no es significativa ya que hay valores muy cambiantes.
+DESVIACIÓN ESTANDAR: La desviación estandar es de 168,1, lo cual quiere decir que los datos varian mucho y su media no es significativa ya que hay valores muy cambiantes.
 
 MAXIMO: El mayor asistidor es Rusell Westbrook con 820 asistensias en una temporada.
 
-MINIMO: El menor asistidor es Kevin Durant con 110 asistencias en una temporada.
+MINIMO: El menor asistidor es Joel Embiid con 274 asistencias en una temporada.
 
 **2.2. PUNTOS**
 
 En este apartado compararemos la cantidad de puntos que hicieron en el año que ganaron el MVP, pero sabemos que son los puntos en el Basquetball, los puntos son aquellos que un jugador realiza para ganar un partido, el equipo con mayor número de puntos al final de un partido es el ganador, sabiendo esto las compararemos con un grafico de barras así observando cuales son las cantidades de los mismos para cada jugador.
 
 ```{r echo=FALSE, fig.align="center", fig.height=6, fig.width=10}
-#Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
-
-#JUGADOR n°1
+#Filtrado Por temporada, unicamente desde 2014 hasta 2024
 Datos_MVP_2014 <- Data_Frame_NBA %>%
-  filter(Season == "2014-15" & Player == "Kevin Durant")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2014-15" & Player == "Stephen Curry") 
 
-#JUGADOR n°2
 Datos_MVP_2015 <- Data_Frame_NBA %>%
-  filter(Season == "2015-16" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2015-16" & Player == "Stephen Curry")
 
-#JUGADOR n°3
 Datos_MVP_2016 <- Data_Frame_NBA %>%
-  filter(Season == "2016-17" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2016-17" & Player == "Russell Westbrook")
 
-#JUGADOR n°4
 Datos_MVP_2017 <- Data_Frame_NBA %>%
-  filter(Season == "2017-18" & Player == "Russell Westbrook")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA") 
+  filter(Season == "2017-18" & Player == "James Harden")
 
-#JUGADOR n°5
 Datos_MVP_2018 <- Data_Frame_NBA %>%
-  filter(Season == "2018-19" & Player == "James Harden")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2018-19" & Player == "Giannis Antetokounmpo")
 
-#JUGADOR n°6
 Datos_MVP_2019 <- Data_Frame_NBA %>%
-  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
-
-#JUGADOR n°7         
+  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")
+         
 Datos_MVP_2020 <- Data_Frame_NBA %>%
-  filter(Season == "2020-21" & Player == "Giannis Antetokounmpo") %>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2020-21" & Player == "Nikola Jokic")
 
-#JUGADOR n°8
 Datos_MVP_2021 <- Data_Frame_NBA %>%
-  filter(Season == "2021-22" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2021-22" & Player == "Nikola Jokic")
 
-#JUGADOR n°9
 Datos_MVP_2022 <- Data_Frame_NBA %>%
-  filter(Season == "2022-23" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2022-23" & Player == "Joel Embiid")
 
-#JUGADOR n°10
 Datos_MVP_2023 <- Data_Frame_NBA %>%
-  filter(Season == "2023-24" & Player == "Joel Embiid")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2023-24" & Player == "Nikola Jokic")
 
-#AGRUPANDO LOS DATOS CON BIND_ROWS()         
+#Agrupacion de variables
+#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
@@ -307,7 +273,7 @@ Graficos_1 <- Datos_MVPs_2014_2023%>%
   geom_bar(stat = "identity")+#GRafico de BARRAS
   geom_text(aes(label = PTS), vjust = -0.2, colour = "black")+ #Agregamos la cantidad de asistencios que tuvo un jugador
 #Estilizancion de la grafica
-   scale_fill_manual(values = c("Kevin Durant"="#DAF7A6",
+   scale_fill_manual(values = c(
                                 "Stephen Curry"="#FFC300",
                                 "Stephen Curry"="#FFC300",
                                 "Russell Westbrook"="#FF5733",
@@ -340,11 +306,11 @@ kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS PUNTOS",digit =
 
 Los 2 jugadores con mas puntos anotados en la temporada que ganaron el MVP son:
 
-1.  James Harden (2017-18)
+1.  Russell Westbrook (2016-17)
 
 2.  Stephen Curry (2015-16)
 
-Estos son los mayores anotadores entre los MVP's de los últimos 9 años
+Estos son los mayores anotadores entre los MVP's de los últimos 10 años
 
 **Interpretaicón de la Tabla**
 
@@ -352,68 +318,48 @@ PROMEDIO: El promedio de puntos de los jugadores ganadores del MVP es de 1852.7 
 
 DESVIACIÓN ESTANDAR: La desviación estandar de los puntos anotados es de 571,1 puntos, lo cual nos dice que los datos son muy variable.
 
-MAXIMO: El mayor anotador es con 2818 puntos James Harden (2018-19).
+MAXIMO: El mayor anotador es con 2818 puntos Russell Westbrook (2016-17).
 
-MINIMO: El menor anotador es con 686 puntos Kevin Durant (2014-15).
+MINIMO: El menor anotador es con 686 puntos Giannis Antetokounmpo (2019-20).
 
 **2.3. TIROS DE 3**
 
 Los tiros de 3 son aquellos puntos que son lanzados de una distancia mayor a 6,7 metros con respecto a aro, estos puntos valen mas por su distancia, a continuación observaremos quienes son los mejores 2 anotadores de 3 entre los los MVP's, para ello usaremos graficos de barras para compararlo con los demás.
 
 ```{r echo=FALSE, fig.align="center", fig.height=6, fig.width=10}
-#Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
-
-#JUGADOR n°1
+#Filtrado Por temporada, unicamente desde 2014 hasta 2024
 Datos_MVP_2014 <- Data_Frame_NBA %>%
-  filter(Season == "2014-15" & Player == "Kevin Durant")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2014-15" & Player == "Stephen Curry")  
 
-#JUGADOR n°2
 Datos_MVP_2015 <- Data_Frame_NBA %>%
-  filter(Season == "2015-16" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2015-16" & Player == "Stephen Curry")
 
-#JUGADOR n°3
 Datos_MVP_2016 <- Data_Frame_NBA %>%
-  filter(Season == "2016-17" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2016-17" & Player == "Russell Westbrook")
 
-#JUGADOR n°4
 Datos_MVP_2017 <- Data_Frame_NBA %>%
-  filter(Season == "2017-18" & Player == "Russell Westbrook")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA") 
+  filter(Season == "2017-18" & Player == "James Harden")
 
-#JUGADOR n°5
 Datos_MVP_2018 <- Data_Frame_NBA %>%
-  filter(Season == "2018-19" & Player == "James Harden")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2018-19" & Player == "Giannis Antetokounmpo")
 
-#JUGADOR n°6
 Datos_MVP_2019 <- Data_Frame_NBA %>%
-  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
-
-#JUGADOR n°7         
+  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")
+         
 Datos_MVP_2020 <- Data_Frame_NBA %>%
-  filter(Season == "2020-21" & Player == "Giannis Antetokounmpo") %>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2020-21" & Player == "Nikola Jokic")
 
-#JUGADOR n°8
 Datos_MVP_2021 <- Data_Frame_NBA %>%
-  filter(Season == "2021-22" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2021-22" & Player == "Nikola Jokic")
 
-#JUGADOR n°9
 Datos_MVP_2022 <- Data_Frame_NBA %>%
-  filter(Season == "2022-23" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2022-23" & Player == "Joel Embiid")
 
-#JUGADOR n°10
 Datos_MVP_2023 <- Data_Frame_NBA %>%
-  filter(Season == "2023-24" & Player == "Joel Embiid")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2023-24" & Player == "Nikola Jokic")
 
-#AGRUPANDO LOS DATOS CON BIND_ROWS()         
+#Agrupacion de variables
+#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
@@ -433,7 +379,7 @@ Graficos_1 <- Datos_MVPs_2014_2023%>%
   geom_bar(stat = "identity")+#GRafico de BARRAS
   geom_text(aes(label = `3PM`), vjust = -0.2, colour = "black")+ #Agregamos la cantidad de asistencios que tuvo un jugador
 #Estilizancion de la grafica
-   scale_fill_manual(values = c("Kevin Durant"="#DAF7A6",
+   scale_fill_manual(values = c(
                                 "Stephen Curry"="#FFC300",
                                 "Stephen Curry"="#FFC300",
                                 "Russell Westbrook"="#FF5733",
@@ -448,7 +394,8 @@ Graficos_1 <- Datos_MVPs_2014_2023%>%
   theme_bw()+
   guides(fill = guide_legend(title = "Jugadores"))+
   labs(title = "Cantidad de Tiros de 3 Anotados por los MVP's 2014-2024")
-Graficos_1 # Mostrando el Grafico
+ # Mostrando el Grafico
+Graficos_1
 
 Datos_estadisticos <- Datos_MVPs_2014_2023%>%
   select(`3PM`,Player,Season)%>%
@@ -460,6 +407,7 @@ Datos_estadisticos <- Datos_MVPs_2014_2023%>%
     T3_Max = max(`3PM`, na.rm = TRUE),
   )
 kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS TIROS DE 3 ANOTADOS",digit = 1)
+
 ```
 
 **Interpretación de la Gráfica**
@@ -468,78 +416,58 @@ Los 2 jugadores con mas puntos anotados en la temporada que ganaron el MVP son:
 
 1.  Stephen Curry (2015-16)
 
-2.  James Harden (2018-19)
+2.  Stephen Curry (2014-15)
 
-Estos son los mayores anotadores de 3 puntos entre los MVP's de los últimos 9 años.
+Estos son los mayores anotadores de 3 puntos entre los MVP's de los últimos 10 años.
 
 **Interpretación de la Tabla**
 
-PROMEDIO: El promedio de 3 puntos de los jugadores ganadores del MVP es de 162,9 puntos
+PROMEDIO: El promedio de 3 puntos de los jugadores ganadores del MVP es de 163,2 puntos
 
-DESVIACIÓN ESTANDAR: La desviación estandar de los puntos anotados de 3 es de 143,6 puntos, lo cual nos dice que los datos son muy variable.
+DESVIACIÓN ESTANDAR: La desviación estandar de los puntos anotados de 3 es de 188,8 puntos, lo cual nos dice que los datos son muy variable.
 
 MAXIMO: El mayor anotador es con 402 puntos Stephen Curry(2015-16).
 
-MINIMO: El menor anotador es con 54 puntos Joel Embiid (2014-15) y con 54 Kevin Durant(2014-15).
+MINIMO: El menor anotador es con 52 puntos Giannis Antetokounmpo (2018-19).
 
 **2.4. PORCENTAJE DE TIROS DE 3**
 
 Esta variable estudia cual es la efectividad de los tiro de 3 de los MVP's, paara el estudio de la misma variable usaremos como venimos haciendo, un gráfico de barras para observar las diferentes cantidades que representan.
 
 ```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
-#Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
-
-#JUGADOR n°1
+#Filtrado Por temporada, unicamente desde 2014 hasta 2024
 Datos_MVP_2014 <- Data_Frame_NBA %>%
-  filter(Season == "2014-15" & Player == "Kevin Durant")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2014-15" & Player == "Stephen Curry") 
 
-#JUGADOR n°2
 Datos_MVP_2015 <- Data_Frame_NBA %>%
-  filter(Season == "2015-16" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2015-16" & Player == "Stephen Curry")
 
-#JUGADOR n°3
 Datos_MVP_2016 <- Data_Frame_NBA %>%
-  filter(Season == "2016-17" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2016-17" & Player == "Russell Westbrook")
 
-#JUGADOR n°4
 Datos_MVP_2017 <- Data_Frame_NBA %>%
-  filter(Season == "2017-18" & Player == "Russell Westbrook")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA") 
+  filter(Season == "2017-18" & Player == "James Harden")
 
-#JUGADOR n°5
 Datos_MVP_2018 <- Data_Frame_NBA %>%
-  filter(Season == "2018-19" & Player == "James Harden")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2018-19" & Player == "Giannis Antetokounmpo")
 
-#JUGADOR n°6
 Datos_MVP_2019 <- Data_Frame_NBA %>%
-  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
-
-#JUGADOR n°7         
+  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")
+         
 Datos_MVP_2020 <- Data_Frame_NBA %>%
-  filter(Season == "2020-21" & Player == "Giannis Antetokounmpo") %>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2020-21" & Player == "Nikola Jokic")
 
-#JUGADOR n°8
 Datos_MVP_2021 <- Data_Frame_NBA %>%
-  filter(Season == "2021-22" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2021-22" & Player == "Nikola Jokic")
 
-#JUGADOR n°9
 Datos_MVP_2022 <- Data_Frame_NBA %>%
-  filter(Season == "2022-23" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2022-23" & Player == "Joel Embiid")
 
-#JUGADOR n°10
 Datos_MVP_2023 <- Data_Frame_NBA %>%
-  filter(Season == "2023-24" & Player == "Joel Embiid")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2023-24" & Player == "Nikola Jokic")
 
-#AGRUPANDO LOS DATOS CON BIND_ROWS()         
+#Agrupacion de variables
+#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
@@ -559,7 +487,7 @@ Graficos_1 <- Datos_MVPs_2014_2023%>%
   geom_bar(stat = "identity")+#GRafico de BARRAS
   geom_text(aes(label = `3P%`), vjust = -0.2, colour = "black")+ #Agregamos la cantidad de asistencios que tuvo un jugador
 #Estilizancion de la grafica
-   scale_fill_manual(values = c("Kevin Durant"="#DAF7A6",
+   scale_fill_manual(values = c(
                                 "Stephen Curry"="#FFC300",
                                 "Stephen Curry"="#FFC300",
                                 "Russell Westbrook"="#FF5733",
@@ -596,76 +524,56 @@ Los 2 jugadores con mas puntos anotados en la temporada que ganaron el MVP son:
 
 2.  Stephen Curry (2016-17)
 
-Este es los mayor anotador de 3 puntos entre los MVP's de los últimos 9 años.
+Este es los mayor anotador de 3 puntos entre los MVP's de los últimos 10 años.
 
 **Interpretación de la Tabla**
 
-PROMEDIO: El promedio de la efectividad en los tires de 3 de los jugadores ganadores del MVP es de 36.5% puntos
+PROMEDIO: El promedio de la efectividad en los tires de 3 de los jugadores ganadores del MVP es de 35,8% puntos
 
-DESVIACIÓN ESTANDAR: La desviación estandar de la efectividad de los puntos anotados de 3 es de 5,3 puntos, lo cual nos dice que los datos no son muy variable.
+DESVIACIÓN ESTANDAR: La desviación estandar de la efectividad de los puntos anotados de 3 es de 6 puntos, lo cual nos dice que los datos no son muy variable.
 
 MAXIMO: El mayor anotador es con 45,4% puntos Stephen Curry(2015-16).
 
-MINIMO: El menor anotador es con 28,8 puntos Russell Westbrook (2017-18).
+MINIMO: El menor anotador es con 25,6% puntos Giannis Antetokounmpo (2018-19).
 
 **2.5. TIROS LIBRE**
 
 Son los puntos que se anotan al momento de pitar una falta afavor en area rival, este tiro se realiza a 4,57 metros del aro aproximadamente. Usaremos para la interpretación un gráfico de barras
 
 ```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
-#Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
-
-#JUGADOR n°1
+#Filtrado Por temporada, unicamente desde 2014 hasta 2024
 Datos_MVP_2014 <- Data_Frame_NBA %>%
-  filter(Season == "2014-15" & Player == "Kevin Durant")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",FTA)
+  filter(Season == "2014-15" & Player == "Stephen Curry") 
 
-#JUGADOR n°2
 Datos_MVP_2015 <- Data_Frame_NBA %>%
-  filter(Season == "2015-16" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",FTA)
+  filter(Season == "2015-16" & Player == "Stephen Curry")
 
-#JUGADOR n°3
 Datos_MVP_2016 <- Data_Frame_NBA %>%
-  filter(Season == "2016-17" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",FTA)
+  filter(Season == "2016-17" & Player == "Russell Westbrook")
 
-#JUGADOR n°4
 Datos_MVP_2017 <- Data_Frame_NBA %>%
-  filter(Season == "2017-18" & Player == "Russell Westbrook")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",FTA) 
+  filter(Season == "2017-18" & Player == "James Harden")
 
-#JUGADOR n°5
 Datos_MVP_2018 <- Data_Frame_NBA %>%
-  filter(Season == "2018-19" & Player == "James Harden")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",FTA)
+  filter(Season == "2018-19" & Player == "Giannis Antetokounmpo")
 
-#JUGADOR n°6
 Datos_MVP_2019 <- Data_Frame_NBA %>%
-  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",FTA)
-
-#JUGADOR n°7         
+  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")
+         
 Datos_MVP_2020 <- Data_Frame_NBA %>%
-  filter(Season == "2020-21" & Player == "Giannis Antetokounmpo") %>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",FTA)
+  filter(Season == "2020-21" & Player == "Nikola Jokic")
 
-#JUGADOR n°8
 Datos_MVP_2021 <- Data_Frame_NBA %>%
-  filter(Season == "2021-22" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",FTA)
+  filter(Season == "2021-22" & Player == "Nikola Jokic")
 
-#JUGADOR n°9
 Datos_MVP_2022 <- Data_Frame_NBA %>%
-  filter(Season == "2022-23" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",FTA)
+  filter(Season == "2022-23" & Player == "Joel Embiid")
 
-#JUGADOR n°10
 Datos_MVP_2023 <- Data_Frame_NBA %>%
-  filter(Season == "2023-24" & Player == "Joel Embiid")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",FTA)
+  filter(Season == "2023-24" & Player == "Nikola Jokic")
 
-#AGRUPANDO LOS DATOS CON BIND_ROWS()         
+#Agrupacion de variables
+#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
@@ -685,7 +593,7 @@ Graficos_1 <- Datos_MVPs_2014_2023%>%
   geom_bar(stat = "identity")+#GRafico de BARRAS
   geom_text(aes(label = FTA), vjust = -0.2, colour = "black")+ #Agregamos la cantidad de asistencios que tuvo un jugador
 #Estilizancion de la grafica
-   scale_fill_manual(values = c("Kevin Durant"="#DAF7A6",
+   scale_fill_manual(values = c(
                                 "Stephen Curry"="#FFC300",
                                 "Stephen Curry"="#FFC300",
                                 "Russell Westbrook"="#FF5733",
@@ -718,11 +626,11 @@ kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS TIROS LIBRES AN
 
 Los 2 jugadores con mas tiros libres en la temporada que ganaron el MVP son:
 
-1.  James Harden (2018-19)
+1.  Russell Westbrook (2016-18)
 
-2.  Giannis Antetokounmpo (2019-20)
+2.  Joel Embiid (2022-23)
 
-Estos son los mayores anotadores de tiros libres entre los MVP's de los últimos 9 años.
+Estos son los mayores anotadores de tiros libres entre los MVP's de los últimos 10 años.
 
 **Interpretación de la Tabla**
 
@@ -730,68 +638,48 @@ PROMEDIO: El promedio de los tiros libres de los jugadores ganadores del MVP es 
 
 DESVIACIÓN ESTANDAR: La desviación estandar de los tiros libres es de 183,4 puntos, lo cual nos dice que los datos son muy variable.
 
-MAXIMO: El mayor anotador es con 858 puntos James Harden (2018-19).
+MAXIMO: El mayor anotador es con 840 puntos Russell Westbrook (2016-18).
 
-MINIMO: El menor anotador es con 171 puntos Kevin Durant (2014-15).
+MINIMO: El menor anotador es con 337 puntos Stephen Curry (2014-15).
 
 **2.6. PORCENTAJE DE TIROS LIBRE**
 
 Es ta variable nos dice la efectividad de un jugador a la hora de anotar un tiro libre, veamos que nos dice el gráfico de barras.
 
 ```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
-#Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
-
-#JUGADOR n°1
+#Filtrado Por temporada, unicamente desde 2014 hasta 2024
 Datos_MVP_2014 <- Data_Frame_NBA %>%
-  filter(Season == "2014-15" & Player == "Kevin Durant")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA","FT%")
+  filter(Season == "2014-15" & Player == "Stephen Curry") 
 
-#JUGADOR n°2
 Datos_MVP_2015 <- Data_Frame_NBA %>%
-  filter(Season == "2015-16" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA","FT%")
+  filter(Season == "2015-16" & Player == "Stephen Curry")
 
-#JUGADOR n°3
 Datos_MVP_2016 <- Data_Frame_NBA %>%
-  filter(Season == "2016-17" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA","FT%")
+  filter(Season == "2016-17" & Player == "Russell Westbrook")
 
-#JUGADOR n°4
 Datos_MVP_2017 <- Data_Frame_NBA %>%
-  filter(Season == "2017-18" & Player == "Russell Westbrook")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA","FT%") 
+  filter(Season == "2017-18" & Player == "James Harden")
 
-#JUGADOR n°5
 Datos_MVP_2018 <- Data_Frame_NBA %>%
-  filter(Season == "2018-19" & Player == "James Harden")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA","FT%")
+  filter(Season == "2018-19" & Player == "Giannis Antetokounmpo")
 
-#JUGADOR n°6
 Datos_MVP_2019 <- Data_Frame_NBA %>%
-  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA","FT%")
-
-#JUGADOR n°7         
+  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")
+         
 Datos_MVP_2020 <- Data_Frame_NBA %>%
-  filter(Season == "2020-21" & Player == "Giannis Antetokounmpo") %>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA","FT%")
+  filter(Season == "2020-21" & Player == "Nikola Jokic")
 
-#JUGADOR n°8
 Datos_MVP_2021 <- Data_Frame_NBA %>%
-  filter(Season == "2021-22" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA","FT%")
+  filter(Season == "2021-22" & Player == "Nikola Jokic")
 
-#JUGADOR n°9
 Datos_MVP_2022 <- Data_Frame_NBA %>%
-  filter(Season == "2022-23" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA","FT%")
+  filter(Season == "2022-23" & Player == "Joel Embiid")
 
-#JUGADOR n°10
 Datos_MVP_2023 <- Data_Frame_NBA %>%
-  filter(Season == "2023-24" & Player == "Joel Embiid")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA","FT%")
+  filter(Season == "2023-24" & Player == "Nikola Jokic")
 
-#AGRUPANDO LOS DATOS CON BIND_ROWS()         
+#Agrupacion de variables
+#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
@@ -811,7 +699,7 @@ Graficos_1 <- Datos_MVPs_2014_2023%>%
   geom_bar(stat = "identity")+#GRafico de BARRAS
   geom_text(aes(label = `FT%`), vjust = -0.2, colour = "black")+ #Agregamos la cantidad de asistencios que tuvo un jugador
 #Estilizancion de la grafica
-   scale_fill_manual(values = c("Kevin Durant"="#DAF7A6",
+   scale_fill_manual(values = c(
                                 "Stephen Curry"="#FFC300",
                                 "Stephen Curry"="#FFC300",
                                 "Russell Westbrook"="#FF5733",
@@ -844,19 +732,19 @@ kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS EFECTIVIDAD DE TIROS L
 
 Los 2 jugadores con mas efectividad de tiros libres anotados en la temporada que ganaron el MVP son:
 
-1.  Stephen Curry (2015-16)
+1.  Stephen Curry (2014-15)
 
-2.  Stephen Curry (2016-17)
+2.  Stephen Curry (2015-16)
 
-Este es los mayor anotador de tiros libre entre los MVP's de los últimos 9 años.
+Este es los mayor anotador de tiros libre entre los MVP's de los últimos 10 años.
 
 **Interpretación de la Tabla**
 
-PROMEDIO: El promedio de la efectividad en los tiros libre de los jugadores ganadores del MVP es de 81,1%
+PROMEDIO: El promedio de la efectividad en los tiros libre de los jugadores ganadores del MVP es de 82,4%
 
-DESVIACIÓN ESTANDAR: La desviación estandar de la efectividad de los tiros libres anotados de 3 es de 9,5 puntos, lo cual nos dice que los datos no son muy variable.
+DESVIACIÓN ESTANDAR: La desviación estandar de la efectividad de los tiros libres anotados de 3 es de 8,5% puntos, lo cual nos dice que los datos no son muy variable.
 
-MAXIMO: El mayor anotador de tiros libres es con 90,8% puntos Stephen Curry(2015-16).
+MAXIMO: El mayor anotador de tiros libres es con 91,4% puntos Stephen Curry(2014-15).
 
 MINIMO: El menor anotador de tiros libres es con 63,3% puntos Giannis Antetokounmpo (2019-20).
 
@@ -865,59 +753,39 @@ MINIMO: El menor anotador de tiros libres es con 63,3% puntos Giannis Antetokoun
 Este dato nos proporciona la efectividad que tiene un jugador a la hora de tirar, ya sea de 3, de 2 o un tiro libre. Usaremos el gráfico de barras para visualizar los datos.
 
 ```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
-#Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
-
-#JUGADOR n°1
+#Filtrado Por temporada, unicamente desde 2014 hasta 2024
 Datos_MVP_2014 <- Data_Frame_NBA %>%
-  filter(Season == "2014-15" & Player == "Kevin Durant")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2014-15" & Player == "Stephen Curry")
 
-#JUGADOR n°2
 Datos_MVP_2015 <- Data_Frame_NBA %>%
-  filter(Season == "2015-16" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2015-16" & Player == "Stephen Curry")
 
-#JUGADOR n°3
 Datos_MVP_2016 <- Data_Frame_NBA %>%
-  filter(Season == "2016-17" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2016-17" & Player == "Russell Westbrook")
 
-#JUGADOR n°4
 Datos_MVP_2017 <- Data_Frame_NBA %>%
-  filter(Season == "2017-18" & Player == "Russell Westbrook")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA") 
+  filter(Season == "2017-18" & Player == "James Harden")
 
-#JUGADOR n°5
 Datos_MVP_2018 <- Data_Frame_NBA %>%
-  filter(Season == "2018-19" & Player == "James Harden")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2018-19" & Player == "Giannis Antetokounmpo")
 
-#JUGADOR n°6
 Datos_MVP_2019 <- Data_Frame_NBA %>%
-  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
-
-#JUGADOR n°7         
+  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")
+         
 Datos_MVP_2020 <- Data_Frame_NBA %>%
-  filter(Season == "2020-21" & Player == "Giannis Antetokounmpo") %>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2020-21" & Player == "Nikola Jokic")
 
-#JUGADOR n°8
 Datos_MVP_2021 <- Data_Frame_NBA %>%
-  filter(Season == "2021-22" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2021-22" & Player == "Nikola Jokic")
 
-#JUGADOR n°9
 Datos_MVP_2022 <- Data_Frame_NBA %>%
-  filter(Season == "2022-23" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2022-23" & Player == "Joel Embiid")
 
-#JUGADOR n°10
 Datos_MVP_2023 <- Data_Frame_NBA %>%
-  filter(Season == "2023-24" & Player == "Joel Embiid")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2023-24" & Player == "Nikola Jokic")
 
-#AGRUPANDO LOS DATOS CON BIND_ROWS()         
+#Agrupacion de variables
+#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
@@ -937,7 +805,7 @@ Graficos_1 <- Datos_MVPs_2014_2023%>%
   geom_bar(stat = "identity")+#GRafico de BARRAS
   geom_text(aes(label = `FG%`), vjust = -0.2, colour = "black")+ #Agregamos la cantidad de asistencios que tuvo un jugador
 #Estilizancion de la grafica
-   scale_fill_manual(values = c("Kevin Durant"="#DAF7A6",
+   scale_fill_manual(values = c(
                                 "Stephen Curry"="#FFC300",
                                 "Stephen Curry"="#FFC300",
                                 "Russell Westbrook"="#FF5733",
@@ -970,21 +838,21 @@ kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS EFECTIVIDAD DE TIROS",
 
 Los 2 jugadores con mas efectividad de puntos en la temporada que ganaron el MVP son:
 
-1.  Giannis Antetokounmpo (2019-20).
+1.  Nikola Jokic (2021-22).
 
-2.  Giannis Antetokounmpo (2020-21).
+2.  Nikola Jokic (2023-24).
 
-Este es los mayor efectividad de tiros entre los MVP's de los últimos 9 años.
+Este es los mayor efectividad de tiros entre los MVP's de los últimos 10 años.
 
 **Interpretación de la Tabla**
 
-PROMEDIO: El promedio de la efectividad en los tiros de los jugadores ganadores del MVP es de 52,4%
+PROMEDIO: El promedio de la efectividad en los tiros de los jugadores ganadores del MVP es de 52,8%
 
-DESVIACIÓN ESTANDAR: La desviación estandar de la efectividad de los tiros es de 6,2% puntos, lo cual nos dice que los datos no son muy variable.
+DESVIACIÓN ESTANDAR: La desviación estandar de la efectividad de los tiros es de 5,8% puntos, lo cual nos dice que los datos no son muy variable.
 
-MAXIMO: El anotador con más efectividad de tiros es con 63,2% puntos Giannis Antetokounmpo(2020-21).
+MAXIMO: El anotador con más efectividad de tiros es con 58,3% puntos Nikola Jokic (2020-21).
 
-MINIMO: El anotador con menos efectividad de tiros es con 44,2% puntos James Harden (2018-19).
+MINIMO: El anotador con menos efectividad de tiros es con 42,5% puntos Russell Westbrook (2018-19).
 
 ## 2.8. CONCLUSIÓN
 
@@ -1002,62 +870,42 @@ En esta sección estudiaremos las caracteristicas defensivas de los MVP's en las
 
 **3.1. TAPONES**
 
-Es cuando uj jugador evita la canasta tocando el balón antes que llegue a la altura máxima de la parabola que realiza el valon al ser lanzado.
+Es cuando un jugador evita la canasta tocando el balón antes que llegue a la altura máxima de la parabola que realiza el balón al ser lanzado.
 
 ```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
-#Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
-
-#JUGADOR n°1
+#Filtrado Por temporada, unicamente desde 2014 hasta 2024
 Datos_MVP_2014 <- Data_Frame_NBA %>%
-  filter(Season == "2014-15" & Player == "Kevin Durant")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2014-15" & Player == "Stephen Curry")  
 
-#JUGADOR n°2
 Datos_MVP_2015 <- Data_Frame_NBA %>%
-  filter(Season == "2015-16" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2015-16" & Player == "Stephen Curry")
 
-#JUGADOR n°3
 Datos_MVP_2016 <- Data_Frame_NBA %>%
-  filter(Season == "2016-17" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2016-17" & Player == "Russell Westbrook")
 
-#JUGADOR n°4
 Datos_MVP_2017 <- Data_Frame_NBA %>%
-  filter(Season == "2017-18" & Player == "Russell Westbrook")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA") 
+  filter(Season == "2017-18" & Player == "James Harden")
 
-#JUGADOR n°5
 Datos_MVP_2018 <- Data_Frame_NBA %>%
-  filter(Season == "2018-19" & Player == "James Harden")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2018-19" & Player == "Giannis Antetokounmpo")
 
-#JUGADOR n°6
 Datos_MVP_2019 <- Data_Frame_NBA %>%
-  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
-
-#JUGADOR n°7         
+  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")
+         
 Datos_MVP_2020 <- Data_Frame_NBA %>%
-  filter(Season == "2020-21" & Player == "Giannis Antetokounmpo") %>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2020-21" & Player == "Nikola Jokic")
 
-#JUGADOR n°8
 Datos_MVP_2021 <- Data_Frame_NBA %>%
-  filter(Season == "2021-22" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2021-22" & Player == "Nikola Jokic")
 
-#JUGADOR n°9
 Datos_MVP_2022 <- Data_Frame_NBA %>%
-  filter(Season == "2022-23" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2022-23" & Player == "Joel Embiid")
 
-#JUGADOR n°10
 Datos_MVP_2023 <- Data_Frame_NBA %>%
-  filter(Season == "2023-24" & Player == "Joel Embiid")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2023-24" & Player == "Nikola Jokic")
 
-#AGRUPANDO LOS DATOS CON BIND_ROWS()         
+#Agrupacion de variables
+#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
@@ -1077,7 +925,7 @@ Graficos_1 <- Datos_MVPs_2014_2023%>%
   geom_bar(stat = "identity")+#GRafico de BARRAS
   geom_text(aes(label = BLK), vjust = -0.2, colour = "black")+ #Agregamos la cantidad de asistencios que tuvo un jugador
 #Estilizancion de la grafica
-   scale_fill_manual(values = c("Kevin Durant"="#DAF7A6",
+   scale_fill_manual(values = c(
                                 "Stephen Curry"="#FFC300",
                                 "Stephen Curry"="#FFC300",
                                 "Russell Westbrook"="#FF5733",
@@ -1108,17 +956,13 @@ kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS TAPONES",digit 
 
 **Interpretación de la Gráfica**
 
-Los 2 jugadores con mayor cantidad de Tapobes en la temporada que ganaron el MVP son:
+Los 2 jugadores con mayor cantidad de tapobes en la temporada que ganaron el MVP son:
 
-1.  Giannis Antetokounmpo (2019-20).
+1.  Giannis Antetokounmpo (2018-19).
 
-**Comparten el segundo puesto**
+3.  Joel Embiid (2022-23)
 
-2.  Giannis Antetokounmpo (2020-21).
-
-3.  Joel Embiid (2023-24)
-
-Este es los mayor efectividad de tiros entre los MVP's de los últimos 9 años.
+Este es los mayor efectividad de tiros entre los MVP's de los últimos 10 años.
 
 **Interpretación de la Tabla**
 
@@ -1126,68 +970,48 @@ PROMEDIO: El promedio de tapones de los jugadores ganadores del MVP es de 45
 
 DESVIACIÓN ESTANDAR: La desviación estandar de los tapones es de 23,3 puntos, lo cual nos dice que los datos no son muy variable.
 
-MAXIMO: El jugador con más tapones es con 73 puntos Giannis Antetokounmpo(2020-21).
+MAXIMO: El jugador con más tapones es con 112 puntos Giannis Antetokounmpo(2018-19).
 
-MINIMO: El menor jugador con tapones es con 15 puntos Stephen Curry (2015-16).
+MINIMO: El menor jugador con tapones es con 15 puntos Stephen Curry(2015-16).
 
 **3.2. ROBOS**
 
 Es cuando un jugador le quita la posecion de balón a otro en cualquier circunstancia del partido
 
 ```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
-#Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
-
-#JUGADOR n°1
+#Filtrado Por temporada, unicamente desde 2014 hasta 2024
 Datos_MVP_2014 <- Data_Frame_NBA %>%
-  filter(Season == "2014-15" & Player == "Kevin Durant")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2014-15" & Player == "Stephen Curry") 
 
-#JUGADOR n°2
 Datos_MVP_2015 <- Data_Frame_NBA %>%
-  filter(Season == "2015-16" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2015-16" & Player == "Stephen Curry")
 
-#JUGADOR n°3
 Datos_MVP_2016 <- Data_Frame_NBA %>%
-  filter(Season == "2016-17" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2016-17" & Player == "Russell Westbrook")
 
-#JUGADOR n°4
 Datos_MVP_2017 <- Data_Frame_NBA %>%
-  filter(Season == "2017-18" & Player == "Russell Westbrook")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA") 
+  filter(Season == "2017-18" & Player == "James Harden")
 
-#JUGADOR n°5
 Datos_MVP_2018 <- Data_Frame_NBA %>%
-  filter(Season == "2018-19" & Player == "James Harden")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2018-19" & Player == "Giannis Antetokounmpo")
 
-#JUGADOR n°6
 Datos_MVP_2019 <- Data_Frame_NBA %>%
-  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
-
-#JUGADOR n°7         
+  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")
+         
 Datos_MVP_2020 <- Data_Frame_NBA %>%
-  filter(Season == "2020-21" & Player == "Giannis Antetokounmpo") %>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2020-21" & Player == "Nikola Jokic")
 
-#JUGADOR n°8
 Datos_MVP_2021 <- Data_Frame_NBA %>%
-  filter(Season == "2021-22" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2021-22" & Player == "Nikola Jokic")
 
-#JUGADOR n°9
 Datos_MVP_2022 <- Data_Frame_NBA %>%
-  filter(Season == "2022-23" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2022-23" & Player == "Joel Embiid")
 
-#JUGADOR n°10
 Datos_MVP_2023 <- Data_Frame_NBA %>%
-  filter(Season == "2023-24" & Player == "Joel Embiid")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA")
+  filter(Season == "2023-24" & Player == "Nikola Jokic")
 
-#AGRUPANDO LOS DATOS CON BIND_ROWS()         
+#Agrupacion de variables
+#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
@@ -1207,7 +1031,7 @@ Graficos_1 <- Datos_MVPs_2014_2023%>%
   geom_bar(stat = "identity")+#GRafico de BARRAS
   geom_text(aes(label = STL), vjust = -0.2, colour = "black")+ #Agregamos la cantidad de asistencios que tuvo un jugador
 #Estilizancion de la grafica
-   scale_fill_manual(values = c("Kevin Durant"="#DAF7A6",
+   scale_fill_manual(values = c(
                                 "Stephen Curry"="#FFC300",
                                 "Stephen Curry"="#FFC300",
                                 "Russell Westbrook"="#FF5733",
@@ -1241,78 +1065,58 @@ kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE ROBOS",digit = 1)
 Los 2 jugadores con mayor cantidad de robos en la temporada que ganaron el MVP son:
 
 1.  Stephen Curry (2015-16).
-2.  James Harden (2018-19)
+2.  Stephen Curry (2014-15).
 
-Estos son los jugadores con más robos entre los MVP's de los últimos 9 años.
+Estos son los jugadores con más robos entre los MVP's de los últimos 10 años.
 
 **Interpretación de la Tabla**
 
-PROMEDIO: El promedio de robos de los jugadores ganadores del MVP es de 101.5
+PROMEDIO: El promedio de robos de los jugadores ganadores del MVP es de 112,1
 
-DESVIACIÓN ESTANDAR: La desviación estandar de los robos es de 50.9 puntos, lo cual nos dice que los datos son muy variable.
+DESVIACIÓN ESTANDAR: La desviación estandar de los robos es de 36,3 puntos, lo cual nos dice que los datos son muy variable.
 
 MAXIMO: El jugador con más robos es con 169 puntos Stephen Curry (2015-16).
 
-MINIMO: El menor jugador con robos es con 24 puntos Joel Embiid (2023-24).
+MINIMO: El menor jugador con robos es con 61 puntos Joel Embiid (2023-24).
 
 **3.3. REBOTES DEFENSIVOS**
 
 Los rebotes defensivos son las recuperaciones del balón que se producen cuando el equipo contrario falla un tiro y éste rebota. Obvervemos con un gráfico de barras como actúan esos datos.
 
 ```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
-#Aqui estoy filtrando a un jugador que gano un MVP en los ultimos 10 años.
-
-#JUGADOR n°1
+#Filtrado Por temporada, unicamente desde 2014 hasta 2024
 Datos_MVP_2014 <- Data_Frame_NBA %>%
-  filter(Season == "2014-15" & Player == "Kevin Durant")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",DREB)
+  filter(Season == "2014-15" & Player == "Stephen Curry")  
 
-#JUGADOR n°2
 Datos_MVP_2015 <- Data_Frame_NBA %>%
-  filter(Season == "2015-16" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",DREB)
+  filter(Season == "2015-16" & Player == "Stephen Curry")
 
-#JUGADOR n°3
 Datos_MVP_2016 <- Data_Frame_NBA %>%
-  filter(Season == "2016-17" & Player == "Stephen Curry")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",DREB)
+  filter(Season == "2016-17" & Player == "Russell Westbrook")
 
-#JUGADOR n°4
 Datos_MVP_2017 <- Data_Frame_NBA %>%
-  filter(Season == "2017-18" & Player == "Russell Westbrook")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",DREB) 
+  filter(Season == "2017-18" & Player == "James Harden")
 
-#JUGADOR n°5
 Datos_MVP_2018 <- Data_Frame_NBA %>%
-  filter(Season == "2018-19" & Player == "James Harden")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",DREB)
+  filter(Season == "2018-19" & Player == "Giannis Antetokounmpo")
 
-#JUGADOR n°6
 Datos_MVP_2019 <- Data_Frame_NBA %>%
-  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",DREB)
-
-#JUGADOR n°7         
+  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")
+         
 Datos_MVP_2020 <- Data_Frame_NBA %>%
-  filter(Season == "2020-21" & Player == "Giannis Antetokounmpo") %>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",DREB)
+  filter(Season == "2020-21" & Player == "Nikola Jokic")
 
-#JUGADOR n°8
 Datos_MVP_2021 <- Data_Frame_NBA %>%
-  filter(Season == "2021-22" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",DREB)
+  filter(Season == "2021-22" & Player == "Nikola Jokic")
 
-#JUGADOR n°9
 Datos_MVP_2022 <- Data_Frame_NBA %>%
-  filter(Season == "2022-23" & Player == "Nikola Jokic")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",DREB)
+  filter(Season == "2022-23" & Player == "Joel Embiid")
 
-#JUGADOR n°10
 Datos_MVP_2023 <- Data_Frame_NBA %>%
-  filter(Season == "2023-24" & Player == "Joel Embiid")%>%
-  select(Season,Player,Age,Team,PTS,AST,"REB%",BLK,STL,TOV,"3PM","FG%","3P%","3PA",DREB)
+  filter(Season == "2023-24" & Player == "Nikola Jokic")
 
-#AGRUPANDO LOS DATOS CON BIND_ROWS()         
+#Agrupacion de variables
+#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
 Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
                                  Datos_MVP_2015,
                                  Datos_MVP_2016,
@@ -1332,7 +1136,7 @@ Graficos_1 <- Datos_MVPs_2014_2023%>%
   geom_bar(stat = "identity")+#GRafico de BARRAS
   geom_text(aes(label = DREB), vjust = -0.2, colour = "black")+ #Agregamos la cantidad de asistencios que tuvo un jugador
 #Estilizancion de la grafica
-   scale_fill_manual(values = c("Kevin Durant"="#DAF7A6",
+   scale_fill_manual(values = c(
                                 "Stephen Curry"="#FFC300",
                                 "Stephen Curry"="#FFC300",
                                 "Russell Westbrook"="#FF5733",
@@ -1366,20 +1170,121 @@ kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS REBOTES DEFENSI
 Los 2 jugadores con mayor cantidad de rebotes defensivos en la temporada que ganaron el MVP son:
 
 1.  Nikola Jokic (2021-22).
-2.  Giannis Antetokounmpo (2019-20)
+2.  Nikola Jokic (2023-24).
 
-Estos son los jugadores con más rebotes defensivos entre los MVP's de los últimos 9 años.
+Estos son los jugadores con más rebotes defensivos entre los MVP's de los últimos 10 años.
 
 **Interpretación de la Tabla**
 
-PROMEDIO: El promedio de los rebotes defensivos de los jugadores ganadores del MVP es de 500,8
+PROMEDIO: El promedio de los rebotes defensivos de los jugadores ganadores del MVP es de 587,5
 
-DESVIACIÓN ESTANDAR: La desviación estandar de los rebotes defensivos es de 211,3 puntos, lo cual nos dice que los datos son muy variable.
+DESVIACIÓN ESTANDAR: La desviación estandar de los rebotes defensivos es de 193,8 puntos, lo cual nos dice que los datos son muy variable.
 
-MAXIMO: El jugador con más rebotes defensivos es con 169 puntos Nikola Jokic (2021-22).
+MAXIMO: El jugador con más rebotes defensivos es con 813 puntos Nikola Jokic (2021-22).
 
-MINIMO: El menor jugador con rebotes defensivos es con 24 puntos Kevin Durant (2014-15).
+MINIMO: El menor jugador con rebotes defensivos es con 285 puntos Stephen Curry (2014-15).
+
+**PORCENTAJE DE REBOTES**
+```{r echo=FALSE, fig.height=6, fig.width=10,fig.align = "center"}
+#Filtrado Por temporada, unicamente desde 2014 hasta 2024
+Datos_MVP_2014 <- Data_Frame_NBA %>%
+  filter(Season == "2014-15" & Player == "Stephen Curry")  
+
+Datos_MVP_2015 <- Data_Frame_NBA %>%
+  filter(Season == "2015-16" & Player == "Stephen Curry")
+
+Datos_MVP_2016 <- Data_Frame_NBA %>%
+  filter(Season == "2016-17" & Player == "Russell Westbrook")
+
+Datos_MVP_2017 <- Data_Frame_NBA %>%
+  filter(Season == "2017-18" & Player == "James Harden")
+
+Datos_MVP_2018 <- Data_Frame_NBA %>%
+  filter(Season == "2018-19" & Player == "Giannis Antetokounmpo")
+
+Datos_MVP_2019 <- Data_Frame_NBA %>%
+  filter(Season == "2019-20" & Player == "Giannis Antetokounmpo")
+         
+Datos_MVP_2020 <- Data_Frame_NBA %>%
+  filter(Season == "2020-21" & Player == "Nikola Jokic")
+
+Datos_MVP_2021 <- Data_Frame_NBA %>%
+  filter(Season == "2021-22" & Player == "Nikola Jokic")
+
+Datos_MVP_2022 <- Data_Frame_NBA %>%
+  filter(Season == "2022-23" & Player == "Joel Embiid")
+
+Datos_MVP_2023 <- Data_Frame_NBA %>%
+  filter(Season == "2023-24" & Player == "Nikola Jokic")
+
+#Agrupacion de variables
+#bind_rows(): es una fincion en la que puedo agrupar distintos objetos, en este caso las variables que tengo de finidas para cada jugador
+Datos_MVPs_2014_2023 <- bind_rows(Datos_MVP_2014,
+                                 Datos_MVP_2015,
+                                 Datos_MVP_2016,
+                                 Datos_MVP_2017,
+                                 Datos_MVP_2018,
+                                 Datos_MVP_2019,
+                                 Datos_MVP_2020,
+                                 Datos_MVP_2021,
+                                 Datos_MVP_2022,
+                                 Datos_MVP_2023
+                                 )
+
+#REALIZANDO EL GRAFICO PARA LA COMPARACIÓN DE LOS DATOS                                 
+Graficos_1 <- Datos_MVPs_2014_2023%>%
+  select(`DREB%`,Player,Season)%>%
+  ggplot(aes(x=Season, y=`DREB%`, fill = Player))+
+  geom_bar(stat = "identity")+#GRafico de BARRAS
+  geom_text(aes(label = `DREB%`), vjust = -0.2, colour = "black")+ #Agregamos la cantidad de asistencios que tuvo un jugador
+#Estilizancion de la grafica
+   scale_fill_manual(values = c(
+                                "Stephen Curry"="#FFC300",
+                                "Stephen Curry"="#FFC300",
+                                "Russell Westbrook"="#FF5733",
+                                "James Harden" = "#360d2a",
+                                "Giannis Antetokounmpo"="#C70039",
+                                "Giannis Antetokounmpo"="#C70039",
+                                "Nikola Jokic"="#900C3F",
+                                "Nikola Jokic"="#900C3F",
+                                "Joel Embiid"="#581845",
+                                "Nikola Jokic"="#900C3F"
+                                ))+
+  theme_bw()+
+  guides(fill = guide_legend(title = "Jugadores"))+
+  labs(title = "rebotes Defensivos de los MVP's 2014-2024")
+Graficos_1 # Mostrando el Grafico
+
+Datos_estadisticos <- Datos_MVPs_2014_2023%>%
+  select(`DREB%`,Player,Season)%>%
+  summarize(
+    Variable = "Rebotes Defensivos",
+    DREB_Promedios = mean(`DREB%`, na.rm = TRUE),
+    Desviacion_Estandar = sd(`DREB%`, na.rm = TRUE),
+   DREB_Min = min(`DREB%`, na.rm = TRUE),
+    DREB_Max = max(`DREB%`, na.rm = TRUE),
+  )
+kable(Datos_estadisticos, caption= "TABLA DE ESTADISTICAS DE LOS REBOTES DEFENSIVOS",digit = 1)
+```
+**Interpretación de la Gráfica**
+
+Los 2 jugadores con mayor cantidad de rebotes defensivos en la temporada que ganaron el MVP son:
+
+1.  Nikola Jokic (2021-22).
+2.  Giannis Antetokounmpo (2019-20).
+
+Estos son los jugadores con más rebotes defensivos entre los MVP's de los últimos 10 años.
+
+**Interpretación de la Tabla**
+
+PROMEDIO: El promedio de los rebotes defensivos de los jugadores ganadores del MVP es de 22,5%
+
+DESVIACIÓN ESTANDAR: La desviación estandar de los rebotes defensivos es de 7,8% puntos, lo cual nos dice que los datos no son muy variable.
+
+MAXIMO: El jugador con más rebotes defensivos es con 31,3% puntos Nikola Jokic (2021-22).
+
+MINIMO: El menor jugador con rebotes defensivos es con 10% puntos Stephen Curry (2014-15).
 
 ## 3.4. CONCLUSIÓN
 
-El mejor jugador defensivo es Giannis Antetokounmpo este jugador esta entre los mejores 2 en la mayoría de categorias, lo cual lo hace el mejor jugador defensivo entre los MVP's.
+El mejor jugador defensivo es Nikola Jokic este jugador esta entre los mejores 2 en la mayoría de categorias, lo cual lo hace el mejor jugador defensivo entre los MVP's.
