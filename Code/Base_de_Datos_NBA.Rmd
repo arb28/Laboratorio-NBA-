@@ -19,7 +19,7 @@ Data_Frame_NBA <-read_excel("D:\\NBA G1-G10.xlsx","BBDD")
 
 ## 1. PRESENTACIÓN DE LOS JUGADORES GANADORES DEL MVP EN LOS ULTIMOS 10 AÑOS
 
-Aquí presentamos los jugadores que ganaron el tan codiciado premio a el jugador más valioso de la temporada, podemos ve tanto su edad como la temporada en la que ganaron este titulo y el equipo para el que jugaban, con estos jugadores vamo a re alizar nuestro trabajo de investigación, el cual es encontrarcual es el mejor jugador en las sigientes caracteristicas:
+Aquí presentamos los jugadores que ganaron el tan codiciado premio a el jugador más valioso de la temporada, podemos ver tanto su edad como la temporada en la que ganaron este titulo y el equipo para el que jugaban, con estos jugadores vamos a realizar nuestro trabajo de investigación, el cual es encontrar cual es el mejor jugador en las sigientes caracteristicas:
 
 1\. Mejor jugador ofensivo.
 
