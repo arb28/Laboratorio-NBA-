@@ -1289,8 +1289,21 @@ MíNIMO: El jugador con el menor porcentaje de rebotes defensivos, es con 10% de
 
 Al observar los datos, se puede ver que el ganador a ser considerado el mejor jugador defensivo de entre estos 10  MVP's está entre Giannis Antetokounmpo en la temporada 2018-19 y Nikola Jokic en la temporada 2021-22. Tras un análisis de las estadisticas de ambos jugadores, llegamos a la conclusión de que el mejor jugador defensivo es Giannis Antetokounmpo (2018-19), ya que no solo posee estadísticas similares a las de Jokic, si no que también en la categoria de tapones, la principal de las variables defensivas, lo supera por casi el doble de los mismos. Además que durante la temporada fue candidato a mejor defensor de la temporada (DPOY), siendo un pilar fundamental para que su equipo en esa temporada quedara como una de las mayores fuerzas defensivas de la NBA.
 
-## 4. CONCLUSIÓN GENERAL
+## 4. CONCLUSIONES GENERALES
 
-Despues de haber analizado todos los datos y variables a estudiar, 
+Despues de haber analizado todos los datos y variables a estudiar, hemos llegado a las siguientes conclusiones:
+
+1) En las estadísticas ofensivas se puede observar que la mayoría de jugadores están nivelados en ciertos apartados como pueden ser asistencias, puntos totales y porcentaje de tiros de campo. Sin embargo, hay jugadores que sobresalen en ciertos aspectos: Por ejemplo, en puntos totales la mayoria de jugadores poseen una cantidad similar de puntos hechos, siendo Stephen Curry (2015-16) y Russell Westbrook (2016-17) quienes lideran esta variable, con una diferencia de casi 300 puntos más con respecto a los demás jugadores. 
+
+En apartados más enfocados en el tiro, se puede notar que la mayoría de estas variables son lideradas por Stephen Curry (2015-16), más especificamente en la cantidad de tiros de 3 puntos hechos, el porcentaje de acierto en tiros de 3 puntos, y el porcentaje de acierto en tiros libres. Además, hay que tener en cuenta que Curry en la temporada 2015-16 tiene sus otras estadísticas ofensivas (ya sean asistencias, porcentaje de tiros de campo, etc.) muy equilibradas con respecto a los demás jugadores. Por ende, este tiene una amplia ventaja en comparación con el resto de  MVP's de esta lista, hablando del apartado ofensivo.
+
+2) Por otra parte, enfocándonos ahora en las estadísticas defensivas, se puede corroborar que los jugadores más altos (Giannis, Jokic y Embiid) poseen cierta ventaja en el apartado defensivo en comparación con jugadores bajos (Curry, Westbrook, Harden), siendo los tres primeros pivots y ala pivots (jugadores por lo general mucho más altos con una altura de más de 2,10 metros), y los 3 ultimos son bases (jugadores que no suelen superar los 2 metros de altura).
+
+Ya habiendo aclarado esto, podemos ver que en apartados defensivos clave como pueden ser los tapones, rebotes defensivos y porcentaje de rebotes, los jugadores más altos poseen mayores estadísticas en estas variables que los jugadores bajos (con excepción de Russell Westbrook en los rebotes). El único apartado en el que destacan más los jugadores bajos que los altos es en la cantidad de robos, siendo Stephen Curry líder en robos por una gran diferencia con respecto a los demás jugadores. A pesar de esto, es quien más flanquea en las demás estadísticas defensivas. Por su parte, Giannis y Jokic en las temporadas 2018-19 y 2021-22 respectivamente, superan por mucho al otro jugador de gran tamaño, Joel Embiid, en el apartado de rebotes defensivos. 
+
+Podría parecer que Giannis y Jokic están igualados en estadísticas defensivas, sin embargo, un gran punto de inflexión, que coloca a Giannis por encima de Jokic, son los tapones. Giannis en este apartado, posee una cantidad mucho mayor de tapones que Jokic, y esta estadística es una si no la más fundamental cuando se habla de defensa. Por tal motivo, podemos decir que Giannis Antetokounmpo es un defensor mucho más completo y por ende mejor que Nikola Jokic.
+
+Por estas razones, consideramos que Stephen Curry en la temporada 2015-16 es el mejor jugador ofensivo ganador al MVP de los últimos 10 años de liga. Mientras tanto, por otro lado, Giannis Antetokounmpo es el mejor jugador defensivo ganador al premio MVP en los últimos 10 años de la NBA.
 
 
+ 
