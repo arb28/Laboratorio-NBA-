@@ -1287,9 +1287,10 @@ MíNIMO: El jugador con el menor porcentaje de rebotes defensivos, es con 10% de
 
 ## 3.4. CONCLUSIÓN
 
-Podemos decir, que el mejor jugador defensivo es Nikola Jokic este jugador esta entre los mejores 2 en la mayoría de categorias, lo cual lo hace el mejor jugador defensivo entre los MVP's.
+Al observar los datos, se puede ver que el ganador a ser considerado el mejor jugador defensivo de entre estos 10  MVP's está entre Giannis Antetokounmpo en la temporada 2018-19 y Nikola Jokic en la temporada 2021-22. Tras un análisis de las estadisticas de ambos jugadores, llegamos a la conclusión de que el mejor jugador defensivo es Giannis Antetokounmpo (2018-19), ya que no solo posee estadísticas similares a las de Jokic, si no que también en la categoria de tapones, la principal de las variables defensivas, lo supera por casi el doble de los mismos. Además que durante la temporada fue candidato a mejor defensor de la temporada (DPOY), siendo un pilar fundamental para que su equipo en esa temporada quedara como una de las mayores fuerzas defensivas de la NBA.
 
 ## 4. CONCLUSIÓN GENERAL
 
+Despues de haber analizado todos los datos y variables a estudiar, 
 
 
