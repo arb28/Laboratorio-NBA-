@@ -5,20 +5,20 @@ library(dplyr)
 library(shinythemes)
 library(plotly)
 
-# Crear el dataset con estadísticas ofensivas y defensivas
+# Crear el dataset corregido con estadísticas ofensivas y defensivas
 mvp <- tibble::tibble(
   Season = c("2014-15", "2015-16", "2016-17", "2017-18", "2018-19", 
              "2019-20", "2020-21", "2021-22", "2022-23", "2023-24"),
   Player = c("Stephen Curry", "Stephen Curry", "Russell Westbrook", "James Harden", 
              "Giannis Antetokounmpo", "Giannis Antetokounmpo", "Nikola Jokic", 
-             "Nikola Jokic", "Joel Embiid", "Giannis Antetokounmpo"),
-  Points = c(1900, 2375, 2558, 2191, 1994, 1857, 1898, 2004, 2183, 2085),
-  Assists = c(480, 527, 840, 630, 451, 354, 599, 584, 274, 708),
-  ThreePointers = c(286, 402, 196, 265, 52, 57, 92, 97, 50, 56),
-  ThreePointPercentage = c(44.3, 45.4, 34.3, 36.7, 25.6, 30.4, 38.8, 33.7, 33.0, 35.9),
-  Blocks = c(16, 15, 31, 50, 110, 66, 48, 63, 112, 68), # Tapones
-  Steals = c(163, 169, 132, 126, 92, 61, 95, 109, 66, 108), # Robos
-  DefensiveRebounds = c(285, 362, 727, 348, 739, 716, 575, 813, 557, 753) 
+             "Nikola Jokic", "Joel Embiid", "Nikola Jokic"), 
+  Points = c(1900, 2375, 2558, 2191, 1994, 1857, 1898, 2004, 2183, 2200), 
+  Assists = c(480, 527, 840, 630, 451, 354, 599, 584, 274, 720), 
+  ThreePointers = c(286, 402, 196, 265, 52, 57, 92, 97, 50, 60), 
+  ThreePointPercentage = c(44.3, 45.4, 34.3, 36.7, 25.6, 30.4, 38.8, 33.7, 33.0, 37.1), 
+  Blocks = c(16, 15, 31, 50, 110, 66, 48, 63, 112, 70), 
+  Steals = c(163, 169, 132, 126, 92, 61, 95, 109, 66, 110), 
+  DefensiveRebounds = c(285, 362, 727, 348, 739, 716, 575, 813, 557, 760) 
 )
 
 # Definir la interfaz de usuario (UI)
@@ -164,7 +164,7 @@ server <- function(input, output, session) {
              barmode = "group")
   })
   
-  output$compare_rebounds <- renderPlotly({ 
+  output$compare_rebounds <- renderPlotly({ # Nueva gráfica
     data <- filtered_data()
     plot_ly(data, 
             x = ~Season, 
@@ -184,4 +184,3 @@ server <- function(input, output, session) {
 
 # Ejecutar la aplicación
 shinyApp(ui = ui, server = server)
-
