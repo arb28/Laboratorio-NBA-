@@ -13,12 +13,12 @@ mvp <- tibble::tibble(
              "Giannis Antetokounmpo", "Giannis Antetokounmpo", "Nikola Jokic", 
              "Nikola Jokic", "Joel Embiid", "Nikola Jokic"), # Cambiado correctamente
   Points = c(1900, 2375, 2558, 2191, 1994, 1857, 1898, 2004, 2183, 2200), # Ajustado
-  Assists = c(480, 527, 840, 630, 451, 354, 599, 584, 274, 720), # Ajustado
-  ThreePointers = c(286, 402, 196, 265, 52, 57, 92, 97, 50, 60), # Ajustado
-  ThreePointPercentage = c(44.3, 45.4, 34.3, 36.7, 25.6, 30.4, 38.8, 33.7, 33.0, 37.1), # Ajustado
-  Blocks = c(16, 15, 31, 50, 110, 66, 48, 63, 112, 70), # Ajustado
-  Steals = c(163, 169, 132, 126, 92, 61, 95, 109, 66, 110), # Ajustado
-  DefensiveRebounds = c(285, 362, 727, 348, 739, 716, 575, 813, 557, 760) # Ajustado
+  Assists = c(619, 527, 840, 630, 424, 354, 599, 584, 274, 708), # Ajustado
+  ThreePointers = c(286, 402, 200, 265, 52, 89, 92, 97, 66, 83), # Ajustado
+  ThreePointPercentage = c(44.3, 45.4, 34.3, 36.7, 25.6, 30.4, 38.8, 33.7, 33.0, 35.9), # Ajustado
+  Blocks = c(16, 15, 31, 50, 110, 66, 48, 63, 112, 68), # Ajustado
+  Steals = c(163, 169, 132, 126, 92, 61, 95, 109, 66, 108), # Ajustado
+  DefensiveRebounds = c(285, 362, 727, 348, 739, 716, 575, 813, 557, 753) # Ajustado
 )
 
 # Definir la interfaz de usuario (UI)
