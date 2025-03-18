@@ -12,3 +12,6 @@ Los jugadores galardonados con este importante premio en los ultimos 10 años so
 - Joel Embiid (2022-2023)
 
 El objetivo general de este trabajo de investigación es el de tratar de definir quien de esta lista es el mejor jugador ofensivo y quien es el mejor jugador defensivo, todo esto mediante el uso de tecnicas estadisticas, gráficos, y otros cálculos que permitan comparar y observar de una manera clara y precisa las estadísticas de cada uno de estos jugadores de elite.
+
+### Si quieres ver nuestros pagina web y poder interactuar con los datos te invitamos a:
+    https://pruebanumero1compu.shinyapps.io/dashb/
